@@ -1,32 +1,30 @@
-'use client'
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
 import { type Skill, skills, skillsTypes } from "../../data/skills";
 import Fuse from "fuse.js";
-import SearchIcon from '@/public/search-icon.svg';
+import SearchIcon from "@/public/search-icon.svg";
 import Checkbox from "../checkbox/checkbox";
 
 const fuse = new Fuse(skills, {
   keys: [
-    'name',
+    "name",
     {
-      name: 'shortDesctioption',
-      weight: 2
-    }
-  ]
-})
+      name: "shortDesctioption",
+      weight: 2,
+    },
+  ],
+});
 
 export default function Skills() {
-  const [search, setSearch] = useState<string>('');
+  const [search, setSearch] = useState<string>("");
   const [filter, setFilter] = useState(skillsTypes);
 
-  function handleSearch() {
-    
-  }
+  function handleSearch() {}
 
   let result = skills;
-  if (search != '') {
-    result = fuse.search(search).map(res => res.item);
+  if (search != "") {
+    result = fuse.search(search).map((res) => res.item);
   }
   console.log(result);
   return (
@@ -79,17 +77,17 @@ export default function Skills() {
           data-name="Skills-list"
           data-node-id="2109:527"
         >
-          {
-            result.map(skill => <Skill key={skill.id} {...skill}/>)
-          }
+          {result.map((skill) => (
+            <Skill key={skill.id} {...skill} />
+          ))}
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function Skill(props: Skill) {
-  const image = props.image.replace('@/public', '');
+  const image = props.image.replace("@/public", "");
 
   return (
     <div
@@ -111,11 +109,7 @@ function Skill(props: Skill) {
           }
         >
           {/* {import(props.image)} */}
-          <img
-            alt=""
-            className="block max-w-none size-full"
-            src={image}
-          />
+          <img alt="" className="block max-w-none size-full" src={image} />
         </div>
       </div>
       <div
@@ -136,5 +130,5 @@ function Skill(props: Skill) {
         </p>
       </div>
     </div>
-  )
+  );
 }

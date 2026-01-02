@@ -47,7 +47,6 @@ const imgAboutFon =
 const imgEllipse2 =
   "https://www.figma.com/api/mcp/asset/5e3166a0-7369-47c0-a6dd-2d02209054f1";
 
-
 function Frame1({ className }: { className?: string }) {
   return (
     <div className={className} data-node-id="2117:221">
