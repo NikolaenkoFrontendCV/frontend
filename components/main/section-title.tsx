@@ -17,11 +17,11 @@ export default function SectionTitle({
         data-node-id="2109:185"
       >
         <div
-          className="relative flex w-full shrink-0 flex-col justify-center bg-linear-to-b from-[#bdbdbd] to-[#171717] bg-clip-text text-[160px] leading-[0]"
+          className="relative flex w-full shrink-0 flex-col justify-center bg-linear-to-b from-[#bdbdbd] to-[#171717] bg-clip-text text-[160px] leading-0"
           data-node-id="2109:168"
           style={{ WebkitTextFillColor: "transparent" }}
         >
-          <span className="font-manrope leading-[219px] font-bold whitespace-pre-wrap">
+          <span className="font-manrope leading-54.75 font-bold whitespace-pre-wrap">
             {number}
           </span>
         </div>

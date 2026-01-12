@@ -6,12 +6,12 @@ import GmailIcon from "@/public/gmail-icon.svg";
 export default function ContactSide() {
   return (
     <div
-      className="fixed top-[252px] right-25 z-50 flex flex-col content-stretch items-start justify-center gap-[10px] rounded-[100px] border border-solid border-[#171717] bg-[rgba(23,23,23,0.5)] p-[10px] min-[1440px]:right-[calc(50%-620px)]"
+      className="fixed top-63 right-25 z-50 flex flex-col content-stretch items-start justify-center gap-2.5 rounded-[100px] border border-solid border-[#171717] bg-[rgba(23,23,23,0.5)] p-2.5 min-[1440px]:right-[calc(50%-620px)]"
       data-name="Platforms"
       data-node-id="2113:150"
     >
       <div
-        className="relative flex size-[40px] shrink-0 content-stretch items-center overflow-clip"
+        className="relative flex size-10 shrink-0 content-stretch items-center overflow-clip"
         data-name="linkedin-svgrepo-com 1"
         data-node-id="2113:152"
       >
@@ -23,21 +23,21 @@ export default function ContactSide() {
         </div>
       </div>
       <div
-        className="relative size-[40px] shrink-0"
+        className="relative size-10 shrink-0"
         data-name="image 2"
         data-node-id="2113:157"
       >
         <HhIcon />
       </div>
       <div
-        className="relative size-[40px] shrink-0 overflow-clip"
+        className="relative size-10 shrink-0 overflow-clip"
         data-name="telegram-svgrepo-com 1"
         data-node-id="2113:158"
       >
         <TelegramIcon />
       </div>
       <div
-        className="relative flex size-[40px] shrink-0 content-stretch items-center overflow-clip rounded-[20px]"
+        className="relative flex size-10 shrink-0 content-stretch items-center overflow-clip rounded-[20px]"
         data-name="gmail-svgrepo-com 1"
         data-node-id="2113:164"
       >

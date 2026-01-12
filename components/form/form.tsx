@@ -1,21 +1,21 @@
-'use client'
+"use client";
 
-import * as z from 'zod';
-import {zodResolver} from '@hookform/resolvers/zod';
-import {useForm, Controller} from 'react-hook-form';
-import FormControl from './form-control';
-import Label from '../label/label';
-import Input from '../input/input';
-import Textarea from '../textarea/textarea';
-import {useCallback, useState} from 'react';
-import FormCheckbox from '../checkbox/form-checkbox';
-import Link from 'next/link';
-import Button from '../buttons/button';
-import {useRef} from 'react';
-import useSendContacts from '@/api/send-contacts';
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm, Controller } from "react-hook-form";
+import FormControl from "./form-control";
+import Label from "../label/label";
+import Input from "../input/input";
+import Textarea from "../textarea/textarea";
+import { useCallback, useState } from "react";
+import FormCheckbox from "../checkbox/form-checkbox";
+import Link from "next/link";
+import Button from "../buttons/button";
+import { useRef } from "react";
+import useSendContacts from "@/api/send-contacts";
 
 const FormSchema = z.object({
-  name: z.string().min(1, 'Name is required'),
+  name: z.string().min(1, "Name is required"),
   phone: z.string().nullish(),
   email: z.string().nullish(),
   company: z.string().nullish(),
@@ -32,18 +32,22 @@ export default function Form() {
     email?: string | null | undefined;
     company?: string | null | undefined;
     message?: string | null | undefined;
-  }>({name: null, phone: null, email: null, company: null, message: null});
-  const {control, handleSubmit, formState: {errors}} = useForm({
+  }>({ name: null, phone: null, email: null, company: null, message: null });
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      name: '',
-      phone: '',
-      email: '',
-      company: '',
-      message: '',
+      name: "",
+      phone: "",
+      email: "",
+      company: "",
+      message: "",
     },
   });
-  const {sendContacts, data} = useSendContacts(handleSuccess);
+  const { sendContacts, data } = useSendContacts(handleSuccess);
 
   function handleSuccess() {
     setIsSend(true);
@@ -51,39 +55,56 @@ export default function Form() {
 
   const onSubmit = useCallback(
     (values: z.infer<typeof FormSchema>) => {
-      if (values.phone === '' && values.email === '') {
+      if (values.phone === "" && values.email === "") {
         setFormErrors({
           ...formErrors,
-          phone: 'Either phone or email is required',
-          email: 'Either phone or email is required',
+          phone: "Either phone or email is required",
+          email: "Either phone or email is required",
         });
         return;
       }
       sendContacts(values);
-    }, [sendContacts, formErrors]
-  )
-  
+    },
+    [sendContacts, formErrors],
+  );
+
   return (
-    <form ref={form} onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-center gap-5 p-5 rounded-[20px] border border-gray-400 max-w-147.75 w-full">
-      <div className='w-full flex gap-2.5 items-center'>
+    <form
+      ref={form}
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex w-full max-w-147.75 flex-col items-center gap-5 rounded-[20px] border border-gray-400 p-5"
+    >
+      <div className="flex w-full items-center gap-2.5">
         <Controller
           control={control}
           name="phone"
           render={({ field }) => (
             <FormControl error={Boolean(errors.phone)}>
               <Label htmlFor={field.name}>Your phone number*</Label>
-              <Input {...field} value={field.value || ''} type="phone" id={field.name} placeholder="Phone" />
+              <Input
+                {...field}
+                value={field.value || ""}
+                type="phone"
+                id={field.name}
+                placeholder="Phone"
+              />
             </FormControl>
           )}
         />
-        <span className='leading-[normal] text-base text-white'>or</span>
+        <span className="text-base leading-[normal] text-white">or</span>
         <Controller
           control={control}
           name="email"
           render={({ field }) => (
             <FormControl error={Boolean(errors.email)}>
               <Label htmlFor={field.name}>Your email address*</Label>
-              <Input {...field} value={field.value || ''} type="email" id={field.name} placeholder="Email" />
+              <Input
+                {...field}
+                value={field.value || ""}
+                type="email"
+                id={field.name}
+                placeholder="Email"
+              />
             </FormControl>
           )}
         />
@@ -94,7 +115,13 @@ export default function Form() {
         render={({ field }) => (
           <FormControl error={Boolean(errors.name)}>
             <Label htmlFor={field.name}>How should I address you*</Label>
-            <Input {...field} value={field.value || ''} type="name" id={field.name} placeholder="Name" />
+            <Input
+              {...field}
+              value={field.value || ""}
+              type="name"
+              id={field.name}
+              placeholder="Name"
+            />
           </FormControl>
         )}
       />
@@ -104,7 +131,13 @@ export default function Form() {
         render={({ field }) => (
           <FormControl error={Boolean(errors.company)}>
             <Label htmlFor={field.name}>Where are you from</Label>
-            <Input {...field} value={field.value || ''} type="company" id={field.name} placeholder="Company" />
+            <Input
+              {...field}
+              value={field.value || ""}
+              type="company"
+              id={field.name}
+              placeholder="Company"
+            />
           </FormControl>
         )}
       />
@@ -114,21 +147,33 @@ export default function Form() {
         render={({ field }) => (
           <FormControl error={Boolean(errors.message)}>
             <Label htmlFor={field.name}>Where are you from</Label>
-            <Textarea {...field} value={field.value || ''} id={field.name} placeholder="Additional" />
+            <Textarea
+              {...field}
+              value={field.value || ""}
+              id={field.name}
+              placeholder="Additional"
+            />
           </FormControl>
         )}
       />
-      <FormCheckbox name='agriement' isCheck={isAgreementChecked} onChange={setIsAgreementChecked}>
+      <FormCheckbox
+        name="agriement"
+        isCheck={isAgreementChecked}
+        onChange={setIsAgreementChecked}
+      >
         <p>
-          Подтверждаю согласие с <Link href={'#'}>политикой конфиденциальности и обработки персональных данных</Link>
+          Подтверждаю согласие с{" "}
+          <Link href={"#"}>
+            политикой конфиденциальности и обработки персональных данных
+          </Link>
         </p>
       </FormCheckbox>
-      <Button type="submit" disabled={!isAgreementChecked || data.isPending} className="w-full mt-5">
-        {
-          data.isPending ? 'Sending...' : (
-            isSend ? 'Has been sent' : 'Send'
-          )
-        }
+      <Button
+        type="submit"
+        disabled={!isAgreementChecked || data.isPending}
+        className="mt-5 w-full"
+      >
+        {data.isPending ? "Sending..." : isSend ? "Has been sent" : "Send"}
       </Button>
     </form>
   );

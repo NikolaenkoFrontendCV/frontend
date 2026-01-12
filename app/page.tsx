@@ -14,11 +14,7 @@ import Form from "@/components/form/form";
 export default function Page() {
   return (
     <Wrapper>
-      <Section
-        data-name="Intro"
-        className="flex items-center"
-        id="intro"
-      >
+      <Section data-name="Intro" className="flex items-center" id="intro">
         {/* <div
           className="absolute top-65.25 left-52.75 h-129.75 w-158"
           data-node-id="2109:166"
@@ -98,7 +94,7 @@ export default function Page() {
         >
           <SectionTitle number="01" title="About Me" />
           <div
-            className="font-lato relative flex w-[min-content] min-w-full shrink-0 flex-col justify-center text-center text-[16px] leading-0 text-[#a3a3a3]"
+            className="font-lato relative flex w-min min-w-full shrink-0 flex-col justify-center text-center text-[16px] leading-0 text-[#a3a3a3]"
             data-node-id="2109:177"
           >
             <p className="leading-[normal] whitespace-pre-wrap">
@@ -145,7 +141,7 @@ export default function Page() {
           </div>
         </div> */}
         <div
-          className="top-0 left-0 flex w-full flex-col content-stretch items-center gap-[40px] overflow-clip py-[60px]"
+          className="top-0 left-0 flex w-full flex-col content-stretch items-center gap-10 overflow-clip py-15"
           data-name="Frame"
           data-node-id="2109:189"
         >
@@ -190,7 +186,7 @@ export default function Page() {
         </div> */}
         <SectionTitle number="03" title="Experience" />
         <div
-          className="relative flex w-full flex-col content-stretch items-start gap-[60px]"
+          className="relative flex w-full flex-col content-stretch items-start gap-15"
           data-name="Info"
           data-node-id="2117:183"
         >
@@ -320,7 +316,11 @@ export default function Page() {
           </div>
         </div>
       </Section>
-      <Section data-name="Contact" className="flex flex-col gap-7.5 items-center pt-15" id="contact">
+      <Section
+        data-name="Contact"
+        className="flex flex-col items-center gap-7.5 pt-15"
+        id="contact"
+      >
         {/* <div
           className="absolute top-[152px] left-[92px] h-[743px] w-[1220px]"
           data-name="Contact-fon"

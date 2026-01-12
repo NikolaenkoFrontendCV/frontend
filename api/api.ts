@@ -7,7 +7,7 @@ class HttpRequest {
     this.#api_host = "http://localhost:5000";
   }
 
-  async get({ onError, onSuccess, query }: GetQuery & {query: string}) {
+  async get({ onError, onSuccess, query }: GetQuery & { query: string }) {
     try {
       const res = await fetch(this.#api_host.concat(query), {
         method: "GET",
@@ -25,7 +25,12 @@ class HttpRequest {
     }
   }
 
-  async post({ onError, onSuccess, body, query }: PostQuery & {query: string}) {
+  async post({
+    onError,
+    onSuccess,
+    body,
+    query,
+  }: PostQuery & { query: string }) {
     try {
       const res = await fetch(this.#api_host.concat(query), {
         method: "POST",
@@ -46,7 +51,12 @@ class HttpRequest {
     }
   }
 
-  async put({ onError, onSuccess, body, query }: PostQuery & {query: string}) {
+  async put({
+    onError,
+    onSuccess,
+    body,
+    query,
+  }: PostQuery & { query: string }) {
     try {
       const res = await fetch(this.#api_host.concat(query), {
         method: "PUT",
@@ -67,7 +77,12 @@ class HttpRequest {
     }
   }
 
-  async patch({ onError, onSuccess, body, query }: PostQuery & {query: string}) {
+  async patch({
+    onError,
+    onSuccess,
+    body,
+    query,
+  }: PostQuery & { query: string }) {
     try {
       const res = await fetch(this.#api_host.concat(query), {
         method: "PATCH",
@@ -88,7 +103,7 @@ class HttpRequest {
     }
   }
 
-  async delete({ onError, onSuccess, query }: GetQuery & {query: string}) {
+  async delete({ onError, onSuccess, query }: GetQuery & { query: string }) {
     try {
       const res = await fetch(this.#api_host.concat(query), {
         method: "DELETE",

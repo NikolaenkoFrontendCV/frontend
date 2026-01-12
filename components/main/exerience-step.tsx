@@ -16,7 +16,7 @@ export default function ExperienceStep({
 }) {
   return (
     <div
-      className={`flex w-full shrink-0 content-stretch items-center justify-center gap-[40px] overflow-clip px-10 py-2.5 ${reverse ? "flex-row-reverse" : ""}`}
+      className={`flex w-full shrink-0 content-stretch items-center justify-center gap-10 overflow-clip px-10 py-2.5 ${reverse ? "flex-row-reverse" : ""}`}
     >
       <div
         className={`flex min-h-px w-full min-w-px flex-col content-stretch ${reverse ? "items-start" : "items-end"} justify-center`}
@@ -48,13 +48,13 @@ export default function ExperienceStep({
         data-node-id="2117:195"
       >
         <div
-          className="font-lato relative flex shrink-0 flex-col justify-center text-justify text-[16px] leading-[1.5] whitespace-pre-wrap text-[#f5f5f5] not-italic"
+          className="font-lato relative flex shrink-0 flex-col justify-center text-justify text-[16px] leading-normal whitespace-pre-wrap text-[#f5f5f5] not-italic"
           data-node-id="2117:174"
         >
           {children}
         </div>
         <ShowMoreLink
-          className="relative flex shrink-0 content-stretch items-center justify-center gap-[6px]"
+          className="relative flex shrink-0 content-stretch items-center justify-center gap-1.5"
           href="#"
         />
       </div>

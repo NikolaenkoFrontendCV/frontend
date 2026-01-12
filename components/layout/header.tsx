@@ -8,7 +8,7 @@ export default function Header() {
       data-node-id="2109:173"
     >
       <nav
-        className="relative flex shrink-0 content-stretch items-center gap-[50px]"
+        className="relative flex shrink-0 content-stretch items-center gap-12.5"
         data-name="Navigation"
         data-node-id="2108:165"
       >

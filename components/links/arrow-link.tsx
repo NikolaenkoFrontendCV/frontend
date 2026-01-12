@@ -11,7 +11,7 @@ export default function ArrowLink({
   return (
     <Link
       href={href}
-      className="flex shrink-0 content-stretch items-center justify-center gap-[6px]"
+      className="flex shrink-0 content-stretch items-center justify-center gap-1.5"
     >
       <div
         className="font-lato relative flex shrink-0 flex-col justify-center text-[16px] leading-0 whitespace-nowrap text-white not-italic"

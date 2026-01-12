@@ -26,11 +26,7 @@ export default function Checkbox({
       data-name="Filter-item"
       data-node-id="2109:858"
     >
-      <input
-        id={label + "-filter"}
-        type="checkbox"
-        className="hidden"
-      ></input>
+      <input id={label + "-filter"} type="checkbox" className="hidden"></input>
       <button
         className="relative block flex size-[20px] shrink-0 cursor-pointer items-center justify-center rounded-[4px] border border-solid border-[#a3a3a3]"
         data-node-id="I2109:858;2109:818"

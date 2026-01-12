@@ -1,7 +1,12 @@
-export default function FormControl({error, children} : {error?: boolean, children?: React.ReactNode}) {
+export default function FormControl({
+  error,
+  children,
+}: {
+  error?: boolean;
+  children?: React.ReactNode;
+}) {
+  console.log(error);
   return (
-    <div className="w-full flex flex-col gap-2.5 items-start">
-      {children}
-    </div>
+    <div className="flex w-full flex-col items-start gap-2.5">{children}</div>
   );
 }
