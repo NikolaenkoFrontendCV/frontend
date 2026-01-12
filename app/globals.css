@@ -42,6 +42,33 @@
   display: none;
 }
 
+input, textarea, select, button {
+  font-family: var(--font-lato);
+  line-height: normal;
+  color: var(--color-white);
+  font-size: 16px;
+  letter-spacing: 0.8px;
+}
+
+input:active,
+input:focus,
+textarea:active,
+textarea:focus,
+select:active,
+select:focus {
+  outline: none !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: var(--color-white) !important;
+  transition: background-color 9999s ease-in-out 0s   !important;
+}
+
 body {
   background: var(--gray-900);
   color: var(--white);

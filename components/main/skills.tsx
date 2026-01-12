@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useState } from "react";
@@ -20,32 +21,50 @@ export default function Skills() {
   const [search, setSearch] = useState<string>("");
   const [filter, setFilter] = useState(skillsTypes);
 
-  function handleSearch() {}
+  function handleSearch(value: string) {
+    setSearch(value);
+  }
+
+  function handleChangeFilter(value: string) {
+    if (value === "All") {
+      if (filter.length > 0) {
+        setFilter([]);
+        return;
+      }
+      setFilter(skillsTypes);
+      return;
+    }
+    if (filter.includes(value)) {
+      setFilter(filter.filter((item) => item !== value));
+    } else {
+      setFilter([...filter, value]);
+    }
+  }
 
   let result = skills;
   if (search != "") {
     result = fuse.search(search).map((res) => res.item);
   }
-  console.log(result);
+  if (filter.length < skillsTypes.length) {
+    result = result.filter((skill) => filter.includes(skill.type));
+  }
+
   return (
     <div
-      className="content-stretch flex flex-col gap-5 items-center relative shrink-0 w-full"
+      className="relative flex w-full max-w-4xl shrink-0 flex-col content-stretch items-center gap-5"
       data-name="Skills-search"
       data-node-id="2109:875"
     >
-      <div
-        className="border border-[#a3a3a3] border-solid content-stretch flex items-center justify-between overflow-clip px-[20px] py-[12px] relative rounded-[10px] shrink-0 w-full"
-        data-name="search-input"
-        data-node-id="2109:869"
-      >
-        <p
-          className="font-lato leading-[normal] not-italic relative shrink-0 text-[#a3a3a3] text-[16px] tracking-[0.8px]"
-          data-node-id="I2109:869;2109:864"
-        >
-          Input...
-        </p>
+      <div className="w-full">
+        <input
+          className="relative flex w-full shrink-0 content-stretch items-center justify-between overflow-clip rounded-[10px] border border-solid border-[#a3a3a3] px-5 py-3"
+          data-name="search-input"
+          data-node-id="2109:869"
+          placeholder="Search..."
+          onChange={(e) => handleSearch(e.target.value)}
+        ></input>
         <div
-          className="relative shrink-0 size-[24px]"
+          className="absolute top-3 right-5 size-6 shrink-0"
           data-name="search"
           data-node-id="I2109:869;2109:866"
         >
@@ -53,33 +72,77 @@ export default function Skills() {
         </div>
       </div>
       <div
-        className="content-stretch flex h-[349px] items-start justify-between relative shrink-0 w-full"
+        className="relative flex h-87.25 w-full shrink-0 content-stretch items-start justify-between"
         data-name="Filter"
         data-node-id="2109:862"
       >
         <div
-          className="content-stretch flex flex-col gap-5 items-start relative shrink-0 w-[223px]"
+          className="relative flex w-55.75 shrink-0 flex-col content-stretch items-start gap-5"
           data-name="Filter-items"
           data-node-id="2109:836"
         >
-          <Checkbox label="All" />
-          <Checkbox label="Languages" />
-          <Checkbox label="Layout" />
-          <Checkbox label="Frameworks" />
-          <Checkbox label="State managers" />
-          <Checkbox label="Version control" />
-          <Checkbox label="UI libraries" />
-          <Checkbox label="Deploy" />
-          <Checkbox label="Other" />
+          <Checkbox
+            label="All"
+            onChange={handleChangeFilter}
+            isCheck={filter.length === skillsTypes.length}
+            isNotAll={filter.length !== skillsTypes.length && filter.length > 0}
+          />
+          <Checkbox
+            label="Languages"
+            onChange={handleChangeFilter}
+            isCheck={filter.includes("Languages")}
+          />
+          <Checkbox
+            label="Layout"
+            onChange={handleChangeFilter}
+            isCheck={filter.includes("Layout")}
+          />
+          <Checkbox
+            label="Frameworks"
+            onChange={handleChangeFilter}
+            isCheck={filter.includes("Frameworks")}
+          />
+          <Checkbox
+            label="State managers"
+            onChange={handleChangeFilter}
+            isCheck={filter.includes("State managers")}
+          />
+          <Checkbox
+            label="Version control"
+            onChange={handleChangeFilter}
+            isCheck={filter.includes("Version control")}
+          />
+          <Checkbox
+            label="UI libraries"
+            onChange={handleChangeFilter}
+            isCheck={filter.includes("UI libraries")}
+          />
+          <Checkbox
+            label="Deploy"
+            onChange={handleChangeFilter}
+            isCheck={filter.includes("Deploy")}
+          />
+          <Checkbox
+            label="Other"
+            onChange={handleChangeFilter}
+            isCheck={filter.includes("Other")}
+          />
         </div>
         <div
-          className="content-stretch flex flex-col h-[349px] items-start overflow-x-clip overflow-y-auto relative shrink-0 w-[640px]"
+          className="relative flex h-87.25 w-160 shrink-0 flex-col content-stretch items-start overflow-x-clip overflow-y-auto"
           data-name="Skills-list"
           data-node-id="2109:527"
         >
-          {result.map((skill) => (
-            <Skill key={skill.id} {...skill} />
-          ))}
+          {result.length !== 0 ? (
+            result.map((skill) => <Skill key={skill.id} {...skill} />)
+          ) : (
+            <p
+              className="relative mt-0 ml-0 text-[18px] tracking-[1.2px] text-white"
+              data-node-id="2109:921"
+            >
+              No skills found
+            </p>
+          )}
         </div>
       </div>
     </div>
@@ -91,12 +154,12 @@ function Skill(props: Skill) {
 
   return (
     <div
-      className="border-[#a3a3a3] border-b border-l-0 border-r-0 border-solid border-t-0 content-stretch flex gap-[27px] items-center overflow-clip px-[16px] py-[15px] relative shrink-0 w-full"
+      className="relative flex w-full shrink-0 content-stretch items-center gap-6.75 overflow-clip border-t-0 border-r-0 border-b border-l-0 border-solid border-[#a3a3a3] px-4 py-3.75"
       data-name="Skill"
       data-node-id="2109:920"
     >
       <div
-        className="relative shrink-0 size-10"
+        className="relative size-10 shrink-0"
         data-name="next-js-svgrepo-com 1"
         data-node-id="I2109:920;2109:439"
       >
@@ -108,22 +171,21 @@ function Skill(props: Skill) {
             } as React.CSSProperties
           }
         >
-          {/* {import(props.image)} */}
-          <img alt="" className="block max-w-none size-full" src={image} />
+          <img alt="" className="block size-full max-w-none" src={image} />
         </div>
       </div>
       <div
-        className="font-lato grid-cols-[max-content] grid-rows-[max-content] inline-grid justify-items-start leading-[normal] not-italic relative shrink-0"
+        className="font-lato relative inline-grid shrink-0 grid-cols-[max-content] grid-rows-[max-content] justify-items-start leading-[normal] not-italic"
         data-node-id="I2109:920;2109:384"
       >
         <p
-          className="col-1 ml-0 mt-0 relative row-1 text-[24px] text-white tracking-[1.2px]"
+          className="relative col-1 row-1 mt-0 ml-0 text-[24px] tracking-[1.2px] text-white"
           data-node-id="I2109:920;2109:382"
         >
           {props.name}
         </p>
         <p
-          className="col-1 ml-0 mt-10.5 relative row-1 text-[#d4d4d4] text-[16px] tracking-[0.8px]"
+          className="relative col-1 row-1 mt-10.5 ml-0 text-[16px] tracking-[0.8px] text-[#d4d4d4]"
           data-node-id="I2109:920;2109:383"
         >
           {props.shortDescription}

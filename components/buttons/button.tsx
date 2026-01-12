@@ -1,26 +1,21 @@
 "use client";
 
+import { ComponentProps } from "react";
+
 export default function Button({
   style = "filled",
-  type = "button",
   children,
-  onClick,
-}: {
-  type?: "button" | "submit" | "reset";
-  children: React.ReactNode;
-  onClick?: () => void;
-  style?: "filled" | "outlined";
-}) {
+  ...props
+}: ComponentProps<"button"> & {style?: "filled" | "outlined"}) {
   switch (style) {
     case "outlined":
       return (
         <button
-          type={type}
-          onClick={onClick}
-          className="border border-[#f5f5f5] border-solid content-stretch flex items-center justify-center px-[20px] py-[8px] relative rounded-[100px] shrink-0"
+          {...props}
+          className="w-fit flex shrink-0 content-stretch items-center justify-center rounded-[100px] border border-solid border-[#f5f5f5] px-[20px] py-[8px] disabled:border-gray-500 disabled:cursor-alias cursor-pointer"
         >
           <div
-            className="flex flex-col font-lato justify-center leading-[0] not-italic relative shrink-0 text-[#f5f5f5] text-[20px] whitespace-nowrap"
+            className="font-lato relative flex shrink-0 flex-col justify-center text-[20px] leading-[0] whitespace-nowrap text-[#f5f5f5] not-italic"
             data-node-id="I2109:223;2109:198"
           >
             <span className="leading-[99.91000366210938%]">{children}</span>
@@ -30,13 +25,12 @@ export default function Button({
     case "filled":
       return (
         <button
-          type={type}
-          onClick={onClick}
-          className="bg-white content-stretch flex items-center justify-center px-[20px] py-[8px] relative rounded-[100px] shrink-0"
+          {...props}
+          className="w-fit flex shrink-0 content-stretch items-center justify-center rounded-[100px] bg-white px-[20px] py-[8px] disabled:bg-gray-500 disabled:cursor-default cursor-pointer"
           data-node-id="2109:220"
         >
           <div
-            className="flex flex-col font-lato justify-center leading-[0] not-italic relative shrink-0 text-gray-800 text-[20px] whitespace-nowrap"
+            className="font-lato relative flex shrink-0 flex-col justify-center text-[20px] leading-[0] whitespace-nowrap text-gray-800 not-italic"
             data-node-id="I2109:220;2109:201"
           >
             <span className="leading-[99.91000366210938%]">{children}</span>
@@ -49,7 +43,7 @@ export default function Button({
 export function ButtonSet({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className="content-stretch flex gap-[20px] items-start relative shrink-0"
+      className="relative flex shrink-0 content-stretch items-start gap-[20px]"
       data-name="Contact-buttons"
     >
       {children}

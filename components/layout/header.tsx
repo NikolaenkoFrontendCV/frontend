@@ -3,12 +3,12 @@ import NavigationLink from "../links/navigation-link";
 export default function Header() {
   return (
     <header
-      className="fixed z-50 w-full content-stretch bg-linear-to-b from-gray-900 to-gray-900/0 flex items-center justify-center left-0 overflow-clip px-[429px] py-[40px] top-0 w-[1440px]"
+      className="fixed top-0 left-0 z-50 flex w-full content-stretch items-center justify-center bg-linear-to-b from-gray-900 to-gray-900/0 py-10"
       data-name="Header"
       data-node-id="2109:173"
     >
       <nav
-        className="content-stretch flex gap-[50px] items-center relative shrink-0"
+        className="relative flex shrink-0 content-stretch items-center gap-[50px]"
         data-name="Navigation"
         data-node-id="2108:165"
       >

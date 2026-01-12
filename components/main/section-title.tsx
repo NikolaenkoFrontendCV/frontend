@@ -7,27 +7,27 @@ export default function SectionTitle({
 }) {
   return (
     <div
-      className="h-54.75 relative shrink-0 w-fit flex items-end"
+      className="relative flex h-54.75 w-fit shrink-0 items-end"
       data-name="About-title"
       data-node-id="2109:196"
     >
       <div
-        className="z-5 absolute flex flex-col items-center justify-center left-0 -translate-x-1/2 top-0"
+        className="absolute top-0 left-0 z-5 flex -translate-x-1/2 flex-col items-center justify-center"
         data-name="01"
         data-node-id="2109:185"
       >
         <div
-          className="bg-clip-text bg-linear-to-b flex flex-col from-[#bdbdbd] justify-center leading-[0] relative shrink-0 text-[160px] to-[#171717] w-full"
+          className="relative flex w-full shrink-0 flex-col justify-center bg-linear-to-b from-[#bdbdbd] to-[#171717] bg-clip-text text-[160px] leading-[0]"
           data-node-id="2109:168"
           style={{ WebkitTextFillColor: "transparent" }}
         >
-          <span className=" leading-[219px] whitespace-pre-wrap font-manrope font-bold">
+          <span className="font-manrope leading-[219px] font-bold whitespace-pre-wrap">
             {number}
           </span>
         </div>
       </div>
       <div
-        className="z-10 flex flex-col font-manrope font-bold justify-center text-white text-[78px] top-[165.5px] whitespace-nowrap"
+        className="font-manrope top-[165.5px] z-10 flex flex-col justify-center text-[78px] font-bold whitespace-nowrap text-white"
         data-node-id="2109:172"
       >
         <h2 className="leading-[normal]">{title}</h2>
