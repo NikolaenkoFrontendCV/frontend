@@ -1,21 +1,23 @@
+export type TypeOfSkill =
+  | "Layout"
+  | "Languages"
+  | "Frameworks"
+  | "UI libraries"
+  | "State managers"
+  | "Version control"
+  | "Deploy"
+  | "Other";
+
 export type Skill = {
   id: number;
   name: string;
-  type:
-    | "Layout"
-    | "Languages"
-    | "Frameworks"
-    | "UI libraries"
-    | "State managers"
-    | "Version control"
-    | "Deploy"
-    | "Other";
+  type: TypeOfSkill;
   shortDescription: string;
   fullDescription: string;
   image: string;
 };
 
-export const skillsTypes = [
+export const skillsTypes: TypeOfSkill[] = [
   "Layout",
   "Languages",
   "Frameworks",

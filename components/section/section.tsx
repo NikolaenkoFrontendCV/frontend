@@ -1,6 +1,4 @@
-"use server";
-
-export default async function Section(props: React.ComponentProps<"section">) {
+export default function Section(props: React.ComponentProps<"section">) {
   return (
     <section
       {...props}

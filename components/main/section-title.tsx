@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function SectionTitle({
   number,
   title,
@@ -6,7 +8,9 @@ export default function SectionTitle({
   title: string;
 }) {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, transform: "translateY(20px)" }}
+      whileInView={{ opacity: 1, transform: "translateY(0)" }}
       className="relative flex h-54.75 w-fit shrink-0 items-end"
       data-name="About-title"
       data-node-id="2109:196"
@@ -32,6 +36,6 @@ export default function SectionTitle({
       >
         <h2 className="leading-[normal]">{title}</h2>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -13,6 +13,7 @@ import Link from "next/link";
 import Button from "../buttons/button";
 import { useRef } from "react";
 import useSendContacts from "@/api/send-contacts";
+import AnimationContainer from "../containers/animation-container";
 
 const FormSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -69,112 +70,114 @@ export default function Form() {
   );
 
   return (
-    <form
-      ref={form}
-      onSubmit={handleSubmit(onSubmit)}
-      className="flex w-full max-w-147.75 flex-col items-center gap-5 rounded-[20px] border border-gray-400 p-5"
-    >
-      <div className="flex w-full items-center gap-2.5">
+    <AnimationContainer className="">
+      <form
+        ref={form}
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex w-full max-w-147.75 flex-col items-center gap-5 rounded-[20px] border border-gray-400 p-5"
+      >
+        <div className="flex w-full items-center gap-2.5">
+          <Controller
+            control={control}
+            name="phone"
+            render={({ field }) => (
+              <FormControl error={Boolean(errors.phone)}>
+                <Label htmlFor={field.name}>Your phone number*</Label>
+                <Input
+                  {...field}
+                  value={field.value || ""}
+                  type="phone"
+                  id={field.name}
+                  placeholder="Phone"
+                />
+              </FormControl>
+            )}
+          />
+          <span className="text-base leading-[normal] text-white">or</span>
+          <Controller
+            control={control}
+            name="email"
+            render={({ field }) => (
+              <FormControl error={Boolean(errors.email)}>
+                <Label htmlFor={field.name}>Your email address*</Label>
+                <Input
+                  {...field}
+                  value={field.value || ""}
+                  type="email"
+                  id={field.name}
+                  placeholder="Email"
+                />
+              </FormControl>
+            )}
+          />
+        </div>
         <Controller
           control={control}
-          name="phone"
+          name="name"
           render={({ field }) => (
-            <FormControl error={Boolean(errors.phone)}>
-              <Label htmlFor={field.name}>Your phone number*</Label>
+            <FormControl error={Boolean(errors.name)}>
+              <Label htmlFor={field.name}>How should I address you*</Label>
               <Input
                 {...field}
                 value={field.value || ""}
-                type="phone"
+                type="name"
                 id={field.name}
-                placeholder="Phone"
+                placeholder="Name"
               />
             </FormControl>
           )}
         />
-        <span className="text-base leading-[normal] text-white">or</span>
         <Controller
           control={control}
-          name="email"
+          name="company"
           render={({ field }) => (
-            <FormControl error={Boolean(errors.email)}>
-              <Label htmlFor={field.name}>Your email address*</Label>
+            <FormControl error={Boolean(errors.company)}>
+              <Label htmlFor={field.name}>Where are you from</Label>
               <Input
                 {...field}
                 value={field.value || ""}
-                type="email"
+                type="company"
                 id={field.name}
-                placeholder="Email"
+                placeholder="Company"
               />
             </FormControl>
           )}
         />
-      </div>
-      <Controller
-        control={control}
-        name="name"
-        render={({ field }) => (
-          <FormControl error={Boolean(errors.name)}>
-            <Label htmlFor={field.name}>How should I address you*</Label>
-            <Input
-              {...field}
-              value={field.value || ""}
-              type="name"
-              id={field.name}
-              placeholder="Name"
-            />
-          </FormControl>
-        )}
-      />
-      <Controller
-        control={control}
-        name="company"
-        render={({ field }) => (
-          <FormControl error={Boolean(errors.company)}>
-            <Label htmlFor={field.name}>Where are you from</Label>
-            <Input
-              {...field}
-              value={field.value || ""}
-              type="company"
-              id={field.name}
-              placeholder="Company"
-            />
-          </FormControl>
-        )}
-      />
-      <Controller
-        control={control}
-        name="message"
-        render={({ field }) => (
-          <FormControl error={Boolean(errors.message)}>
-            <Label htmlFor={field.name}>Where are you from</Label>
-            <Textarea
-              {...field}
-              value={field.value || ""}
-              id={field.name}
-              placeholder="Additional"
-            />
-          </FormControl>
-        )}
-      />
-      <FormCheckbox
-        name="agriement"
-        isCheck={isAgreementChecked}
-        onChange={setIsAgreementChecked}
-      >
-        <p>
-          Подтверждаю согласие с{" "}
-          <Link href={"#"}>
-            политикой конфиденциальности и обработки персональных данных
-          </Link>
-        </p>
-      </FormCheckbox>
-      <Button
-        type="submit"
-        disabled={!isAgreementChecked || data.isPending}
-        className="mt-5 w-full"
-      >
-        {data.isPending ? "Sending..." : isSend ? "Has been sent" : "Send"}
-      </Button>
-    </form>
+        <Controller
+          control={control}
+          name="message"
+          render={({ field }) => (
+            <FormControl error={Boolean(errors.message)}>
+              <Label htmlFor={field.name}>Where are you from</Label>
+              <Textarea
+                {...field}
+                value={field.value || ""}
+                id={field.name}
+                placeholder="Additional"
+              />
+            </FormControl>
+          )}
+        />
+        <FormCheckbox
+          name="agriement"
+          isCheck={isAgreementChecked}
+          onChange={setIsAgreementChecked}
+        >
+          <p>
+            Подтверждаю согласие с{" "}
+            <Link href={"#"}>
+              политикой конфиденциальности и обработки персональных данных
+            </Link>
+          </p>
+        </FormCheckbox>
+        <Button
+          type="submit"
+          disabled={!isAgreementChecked || data.isPending}
+          className="mt-5 w-full"
+        >
+          {data.isPending ? "Sending..." : isSend ? "Has been sent" : "Send"}
+        </Button>
+      </form>
+    </AnimationContainer>
   );
 }

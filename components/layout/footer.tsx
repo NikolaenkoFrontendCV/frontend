@@ -4,7 +4,7 @@ import NavigationLink from "../links/navigation-link";
 export default function Footer() {
   return (
     <>
-      <div className="pointer-events-none sticky bottom-0 z-100 h-30 w-full bg-linear-to-t from-gray-900 to-gray-900/0"></div>
+      {/* <div className="pointer-events-none sticky bottom-0 z-100 h-30 w-full bg-linear-to-t from-gray-900 to-gray-900/0"></div> */}
       <footer
         className="w-full overflow-clip border-t border-r-0 border-b-0 border-l-0 border-solid border-[#a3a3a3] py-12.5"
         data-name="Footer"

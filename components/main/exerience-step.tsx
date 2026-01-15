@@ -1,5 +1,6 @@
 import React from "react";
 import ShowMoreLink from "../links/show-more-link";
+import AnimationText from "../typography/animation-text";
 
 export default function ExperienceStep({
   position,
@@ -18,7 +19,8 @@ export default function ExperienceStep({
     <div
       className={`flex w-full shrink-0 content-stretch items-center justify-center gap-10 overflow-clip px-10 py-2.5 ${reverse ? "flex-row-reverse" : ""}`}
     >
-      <div
+      <AnimationText
+        direction={reverse ? "rightToLeft" : "leftToRight"}
         className={`flex min-h-px w-full min-w-px flex-col content-stretch ${reverse ? "items-start" : "items-end"} justify-center`}
         data-node-id="2117:169"
       >
@@ -41,9 +43,10 @@ export default function ExperienceStep({
             </p>
           </div>
         </div>
-      </div>
+      </AnimationText>
       <div className="aspect-square min-w-3 rounded-full bg-white"></div>
-      <div
+      <AnimationText
+        direction={reverse ? "leftToRight" : "rightToLeft"}
         className="relative flex w-full flex-col content-stretch items-start justify-center gap-2.5"
         data-node-id="2117:195"
       >
@@ -57,7 +60,7 @@ export default function ExperienceStep({
           className="relative flex shrink-0 content-stretch items-center justify-center gap-1.5"
           href="#"
         />
-      </div>
+      </AnimationText>
     </div>
   );
 }

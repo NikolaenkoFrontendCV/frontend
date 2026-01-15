@@ -2,15 +2,21 @@ import LinkedInIcon from "@/public/linkedin-icon.svg";
 import HhIcon from "@/public/hh-icon.svg";
 import TelegramIcon from "@/public/telegram-icon.svg";
 import GmailIcon from "@/public/gmail-icon.svg";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function ContactSide() {
   return (
-    <div
+    <motion.div
+      animate={{ opacity: 1, right: 100 }}
+      initial={{ opacity: 0, right: 0 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
       className="fixed top-63 right-25 z-50 flex flex-col content-stretch items-start justify-center gap-2.5 rounded-[100px] border border-solid border-[#171717] bg-[rgba(23,23,23,0.5)] p-2.5 min-[1440px]:right-[calc(50%-620px)]"
       data-name="Platforms"
       data-node-id="2113:150"
     >
-      <div
+      <Link
+        href={"#"}
         className="relative flex size-10 shrink-0 content-stretch items-center overflow-clip"
         data-name="linkedin-svgrepo-com 1"
         data-node-id="2113:152"
@@ -21,22 +27,25 @@ export default function ContactSide() {
         >
           <LinkedInIcon />
         </div>
-      </div>
-      <div
+      </Link>
+      <Link
+        href={"#"}
         className="relative size-10 shrink-0"
         data-name="image 2"
         data-node-id="2113:157"
       >
         <HhIcon />
-      </div>
-      <div
+      </Link>
+      <Link
+        href={"#"}
         className="relative size-10 shrink-0 overflow-clip"
         data-name="telegram-svgrepo-com 1"
         data-node-id="2113:158"
       >
         <TelegramIcon />
-      </div>
-      <div
+      </Link>
+      <Link
+        href={"#"}
         className="relative flex size-10 shrink-0 content-stretch items-center overflow-clip rounded-[20px]"
         data-name="gmail-svgrepo-com 1"
         data-node-id="2113:164"
@@ -47,7 +56,7 @@ export default function ContactSide() {
         >
           <GmailIcon />
         </div>
-      </div>
-    </div>
+      </Link>
+    </motion.div>
   );
 }

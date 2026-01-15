@@ -6,6 +6,7 @@ import { type Skill, skills, skillsTypes } from "../../data/skills";
 import Fuse from "fuse.js";
 import SearchIcon from "@/public/search-icon.svg";
 import Checkbox from "../checkbox/checkbox";
+import AnimationContainer from "../containers/animation-container";
 
 const fuse = new Fuse(skills, {
   keys: [
@@ -19,7 +20,7 @@ const fuse = new Fuse(skills, {
 
 export default function Skills() {
   const [search, setSearch] = useState<string>("");
-  const [filter, setFilter] = useState(skillsTypes);
+  const [filter, setFilter] = useState<string[]>(skillsTypes);
 
   function handleSearch(value: string) {
     setSearch(value);
@@ -55,7 +56,7 @@ export default function Skills() {
       data-name="Skills-search"
       data-node-id="2109:875"
     >
-      <div className="w-full">
+      <AnimationContainer className="w-full">
         <input
           className="relative flex w-full shrink-0 content-stretch items-center justify-between overflow-clip rounded-[10px] border border-solid border-[#a3a3a3] px-5 py-3"
           data-name="search-input"
@@ -70,12 +71,8 @@ export default function Skills() {
         >
           <SearchIcon />
         </div>
-      </div>
-      <div
-        className="relative flex h-87.25 w-full shrink-0 content-stretch items-start justify-between"
-        data-name="Filter"
-        data-node-id="2109:862"
-      >
+      </AnimationContainer>
+      <AnimationContainer className="relative flex h-87.25 w-full shrink-0 content-stretch items-start justify-between">
         <div
           className="relative flex w-55.75 shrink-0 flex-col content-stretch items-start gap-5"
           data-name="Filter-items"
@@ -87,46 +84,14 @@ export default function Skills() {
             isCheck={filter.length === skillsTypes.length}
             isNotAll={filter.length !== skillsTypes.length && filter.length > 0}
           />
-          <Checkbox
-            label="Languages"
-            onChange={handleChangeFilter}
-            isCheck={filter.includes("Languages")}
-          />
-          <Checkbox
-            label="Layout"
-            onChange={handleChangeFilter}
-            isCheck={filter.includes("Layout")}
-          />
-          <Checkbox
-            label="Frameworks"
-            onChange={handleChangeFilter}
-            isCheck={filter.includes("Frameworks")}
-          />
-          <Checkbox
-            label="State managers"
-            onChange={handleChangeFilter}
-            isCheck={filter.includes("State managers")}
-          />
-          <Checkbox
-            label="Version control"
-            onChange={handleChangeFilter}
-            isCheck={filter.includes("Version control")}
-          />
-          <Checkbox
-            label="UI libraries"
-            onChange={handleChangeFilter}
-            isCheck={filter.includes("UI libraries")}
-          />
-          <Checkbox
-            label="Deploy"
-            onChange={handleChangeFilter}
-            isCheck={filter.includes("Deploy")}
-          />
-          <Checkbox
-            label="Other"
-            onChange={handleChangeFilter}
-            isCheck={filter.includes("Other")}
-          />
+          {skillsTypes.map((type) => (
+            <Checkbox
+              key={type}
+              label={type}
+              onChange={handleChangeFilter}
+              isCheck={filter.includes(type)}
+            />
+          ))}
         </div>
         <div
           className="relative flex h-87.25 w-160 shrink-0 flex-col content-stretch items-start overflow-x-clip overflow-y-auto"
@@ -144,7 +109,7 @@ export default function Skills() {
             </p>
           )}
         </div>
-      </div>
+      </AnimationContainer>
     </div>
   );
 }
