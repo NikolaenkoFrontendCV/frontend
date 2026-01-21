@@ -1,24 +1,24 @@
-'use client'
+"use client";
 
-import { createSlice } from '@reduxjs/toolkit'
-import type { RootState } from '@/lib/store'
+import { createSlice } from "@reduxjs/toolkit";
+import type { RootState } from "@/lib/store";
 
 // Define a type for the slice state
 interface DialogContentState {
-  type: '' | 'experience' | 'cases';
-  itemId: number,
+  type: "" | "experience" | "cases";
+  itemId: number;
   isOpen?: boolean;
 }
 
 // Define the initial state using that type
 const initialState: DialogContentState = {
-  type: '',
+  type: "",
   itemId: -1,
   isOpen: false,
-}
+};
 
 export const dialogContentSlice = createSlice({
-  name: 'dialogContent',
+  name: "dialogContent",
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
@@ -29,13 +29,13 @@ export const dialogContentSlice = createSlice({
     },
     closeDialog: (state) => {
       state.isOpen = false;
-    }
+    },
   },
-})
+});
 
-export const { setDialogContent } = dialogContentSlice.actions
+export const { setDialogContent } = dialogContentSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectDialogContent = (state: RootState) => state.dialogContent
+export const selectDialogContent = (state: RootState) => state.dialogContent;
 
-export default dialogContentSlice.reducer
+export default dialogContentSlice.reducer;

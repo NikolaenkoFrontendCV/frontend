@@ -1,17 +1,14 @@
-'use client'
+"use client";
 
-import { Provider } from 'react-redux'
-import {makeStore} from '@/lib/store'
+import { Provider } from "react-redux";
+import { makeStore } from "@/lib/store";
 
-export default function StoreProvider({children
+export default function StoreProvider({
+  children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   const store = makeStore();
-  
-  return (
-    <Provider store={store}>
-      {children}
-    </Provider>
-  )
+
+  return <Provider store={store}>{children}</Provider>;
 }

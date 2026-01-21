@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
 export default function ShowMoreLink({
   className,
-  onClick
+  onClick,
 }: {
   className?: string;
   onClick?: () => void;

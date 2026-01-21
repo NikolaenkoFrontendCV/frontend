@@ -3,7 +3,6 @@ import AnimationText from "../typography/animation-text";
 import ShowMoreButton from "../buttons/show-more-button";
 import { useAppDispatch } from "@/lib/hooks/redux-store";
 import { setDialogContent } from "@/lib/features/dialog-conent/dialogContentSlice";
-import { experience } from "@/data/experience";
 
 export default function ExperienceStep({
   id,
@@ -23,8 +22,8 @@ export default function ExperienceStep({
   const dispatch = useAppDispatch();
 
   function handleShowMore() {
-    dispatch(setDialogContent('experience-' + id))
-    console.log()
+    dispatch(setDialogContent("experience-" + id));
+    console.log();
   }
 
   return (
