@@ -1,20 +1,32 @@
 import React from "react";
-import ShowMoreLink from "../links/show-more-link";
 import AnimationText from "../typography/animation-text";
+import ShowMoreButton from "../buttons/show-more-button";
+import { useAppDispatch } from "@/lib/hooks/redux-store";
+import { setDialogContent } from "@/lib/features/dialog-conent/dialogContentSlice";
+import { experience } from "@/data/experience";
 
 export default function ExperienceStep({
+  id,
   position,
   company,
   period,
   reverse,
   children,
 }: {
+  id: number;
   position: string;
   company: string;
   period: string;
   reverse?: boolean;
   children: React.ReactNode;
 }) {
+  const dispatch = useAppDispatch();
+
+  function handleShowMore() {
+    dispatch(setDialogContent('experience-' + id))
+    console.log()
+  }
+
   return (
     <div
       className={`flex w-full shrink-0 content-stretch items-center justify-center gap-10 overflow-clip px-10 py-2.5 ${reverse ? "flex-row-reverse" : ""}`}
@@ -56,9 +68,9 @@ export default function ExperienceStep({
         >
           {children}
         </div>
-        <ShowMoreLink
+        <ShowMoreButton
           className="relative flex shrink-0 content-stretch items-center justify-center gap-1.5"
-          href="#"
+          onClick={handleShowMore}
         />
       </AnimationText>
     </div>
