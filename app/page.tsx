@@ -16,6 +16,7 @@ import { motion, MotionConfig } from "framer-motion";
 import AnimationText from "@/components/typography/animation-text";
 import Dialog from "@/components/dialog/dialog";
 import StoreProvider from "./StoreProvider";
+import Preview from "@/components/main/preview";
 
 export default function Page() {
   return (
@@ -365,6 +366,7 @@ export default function Page() {
           </Section>
         </Wrapper>
         <Dialog />
+        <Preview />
       </StoreProvider>
     </MotionConfig>
   );

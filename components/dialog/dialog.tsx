@@ -8,6 +8,7 @@ import { experience } from "@/data/experience";
 import { useAppDispatch } from "@/lib/hooks/redux-store";
 
 const variants = {
+  initial: {opacity: 0, display: "none"},
   hidden: { opacity: 0, display: "none", transition: { duration: 0.2 } },
   visible: { opacity: 1, transition: { duration: 0.2 } },
 };
