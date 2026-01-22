@@ -165,7 +165,7 @@ export default function Form() {
         >
           <p>
             Подтверждаю согласие с{" "}
-            <Link href={"#"}>
+            <Link href={"/privacy"} className="underline underline-offset-2 decoration-1">
               политикой конфиденциальности и обработки персональных данных
             </Link>
           </p>

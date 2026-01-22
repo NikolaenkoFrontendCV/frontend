@@ -12,11 +12,11 @@ export default function Header() {
         data-name="Navigation"
         data-node-id="2108:165"
       >
-        <NavigationLink href="#about">About</NavigationLink>
-        <NavigationLink href="#skills">Skills</NavigationLink>
-        <NavigationLink href="#experience">Experience</NavigationLink>
-        <NavigationLink href="#portfolio">Portfolio</NavigationLink>
-        <NavigationLink href="#contacts">Contacts</NavigationLink>
+        <NavigationLink href="/#about">About</NavigationLink>
+        <NavigationLink href="/#skills">Skills</NavigationLink>
+        <NavigationLink href="/#experience">Experience</NavigationLink>
+        <NavigationLink href="/#portfolio">Portfolio</NavigationLink>
+        <NavigationLink href="/#contacts">Contacts</NavigationLink>
       </nav>
     </header>
   );
