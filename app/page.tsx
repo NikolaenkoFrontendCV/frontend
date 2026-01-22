@@ -17,6 +17,7 @@ import AnimationText from "@/components/typography/animation-text";
 import Dialog from "@/components/dialog/dialog";
 import StoreProvider from "./StoreProvider";
 import Preview from "@/components/main/preview";
+// import EllipsFon from "@/components/layout/fon-figure";
 
 export default function Page() {
   return (
@@ -24,18 +25,7 @@ export default function Page() {
       <StoreProvider>
         <Wrapper>
           <Section data-name="Intro" className="flex items-center" id="intro">
-            {/* <div
-              className="absolute top-65.25 left-52.75 h-129.75 w-158"
-              data-node-id="2109:166"
-            >
-              <div className="absolute inset-[-43.76%_-35.93%]">
-                <img
-                  alt=""
-                  className="block max-w-none size-full"
-                  src={imgEllipse2}
-                />
-              </div>
-            </div> */}
+            {/* <EllipsFon bottom="63px" left="211px" x={632 /2} y={519/2} rotate={0}/> */}
             <div className="flex w-full items-start justify-between">
               <motion.div
                 initial={{ opacity: 0, transform: "translateX(-20px)" }}
@@ -104,6 +94,7 @@ export default function Page() {
             className="flex flex-col items-center justify-center"
             id="about"
           >
+            {/* <EllipsFon top="165px" left="630px" x={632 /2} y={450/2} rotate={0}/> */}
             <div
               className="flex w-full max-w-135.5 flex-col content-stretch items-center gap-7.5"
               data-name="Container"
@@ -130,34 +121,9 @@ export default function Page() {
                 <Button style="outlined">Download CV</Button>
               </ButtonSet>
             </div>
-            {/* <div
-              className="absolute top-41.25 left-157.5 h-112.5 w-157.25"
-              data-name="About-fon"
-              data-node-id="2109:975"
-            >
-              <div className="absolute inset-[-50.47%_-36.1%]">
-                <Image
-                  alt=""
-                  className="block max-w-none size-full"
-                  src={imgAboutFon}
-                />
-              </div>
-            </div> */}
           </Section>
           <Section data-name="Skills" id="skills">
-            {/* <div
-              className="absolute top-14.5 left-18.5 h-182.75 w-248"
-              data-name="Skills-fon"
-              data-node-id="2133:453"
-            >
-              <div className="absolute inset-[-31.07%_-22.89%]">
-                <Image
-                  alt=""
-                  className="block max-w-none size-full"
-                  src={imgSkillsFon}
-                />
-              </div>
-            </div> */}
+            {/* <EllipsFon bottom="63px" left="211px" x={632 /2} y={519/2} rotate={0}/> */}
             <div
               className="top-0 left-0 flex w-full flex-col content-stretch items-center gap-10 overflow-clip py-15"
               data-name="Frame"
@@ -176,32 +142,9 @@ export default function Page() {
             className="flex flex-col items-center gap-15 pt-31"
             id="experience"
           >
-            {/* <div className="absolute top-[403px] left-[650px] flex h-[1002px] w-0 items-center justify-center">
-              <div className="flex-none rotate-[90deg]">
-                <div className="relative h-0 w-[1002px]" data-node-id="2117:149">
-                  <div className="absolute inset-[-1px_0_0_0]">
-                    <img
-                      alt=""
-                      className="block size-full max-w-none"
-                      src={imgLine1}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div> */}
-            {/* <div
-              className="absolute top-[341px] left-[40px] h-[1152px] w-[1309px]"
-              data-name="Experience-fon"
-              data-node-id="2133:454"
-            >
-              <div className="absolute inset-[-19.71%_-17.35%]">
-                <img
-                  alt=""
-                  className="block size-full max-w-none"
-                  src={imgExperienceFon}
-                />
-              </div>
-            </div> */}
+            {/* <EllipsFon top="341px" left="64px" x={315*1.5} y={225*1.5} rotate={0}/>
+            <EllipsFon top="693px" left="720px" x={315} y={225} rotate={0}/>
+            <EllipsFon top="1043px" left="40px" x={315} y={225} rotate={0}/> */}
             <SectionTitle number="03" title="Experience" />
             <div
               className="relative flex w-full flex-col content-stretch items-start gap-15"
@@ -297,19 +240,6 @@ export default function Page() {
             className="flex flex-col items-center gap-15 pt-31"
             id="portfolio"
           >
-            {/* <div
-              className="absolute top-[628px] left-[-66px] h-[934px] w-[1217px]"
-              data-name="Portfolio-fon"
-              data-node-id="2133:451"
-            >
-              <div className="absolute inset-[-24.31%_-18.66%]">
-                <img
-                  alt=""
-                  className="block size-full max-w-none"
-                  src={imgPortfolioFon}
-                />
-              </div>
-            </div> */}
             <SectionTitle number="04" title="Portfolio" />
             <div
               className="flex flex-col content-stretch items-center gap-5"
@@ -346,21 +276,8 @@ export default function Page() {
           <Section
             data-name="Contact"
             className="flex flex-col items-center justify-center gap-7.5 pt-15 pb-30"
-            id="contact"
+            id="contacts"
           >
-            {/* <div
-              className="absolute top-[152px] left-[92px] h-[743px] w-[1220px]"
-              data-name="Contact-fon"
-              data-node-id="2133:450"
-            >
-              <div className="absolute inset-[-30.57%_-18.61%]">
-                <img
-                  alt=""
-                  className="block size-full max-w-none"
-                  src={imgContactFon}
-                />
-              </div>
-            </div> */}
             <SectionTitle number="05" title="Contact" />
             <Form />
           </Section>
