@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
 import { experience } from "@/data/experience";
 import { useAppDispatch } from "@/lib/hooks/redux-store";
+import { portfolioData } from "@/data/portfolio";
 
 const variants = {
   initial: {opacity: 0, display: "none"},
@@ -43,6 +44,8 @@ function getContent(data: { type: string; itemId: number }) {
   switch (data.type) {
     case "experience":
       return experience[data.itemId].content;
+    case "cases":
+      return portfolioData[data.itemId].content;
     default:
       return defaultValue;
   }

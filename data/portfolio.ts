@@ -1,3 +1,5 @@
+import * as content from "./cases-content";
+
 export const portfolioData = [
   {
     id: 0,
@@ -5,6 +7,7 @@ export const portfolioData = [
     description:
       "Lorem ipsum dolor sit amet consectetur. Etiam est commodo et pulvinar commodo tortor donec duis tellus. Mattis et id nullam adipiscing.",
     imageSrc: "/dialtrace.jpg",
+    content: content.DialTraceCase
   },
   {
     id: 1,
@@ -12,6 +15,7 @@ export const portfolioData = [
     description:
       "Lorem ipsum dolor sit amet consectetur. Etiam est commodo et pulvinar commodo tortor donec duis tellus. Mattis et id nullam adipiscing.",
     imageSrc: "/pzkgroup.jpg",
+    content: content.PZKgroupCase
   },
   {
     id: 2,
@@ -19,6 +23,7 @@ export const portfolioData = [
     description:
       "Lorem ipsum dolor sit amet consectetur. Etiam est commodo et pulvinar commodo tortor donec duis tellus. Mattis et id nullam adipiscing.",
     imageSrc: "/cyberzion.jpg",
+    content: content.CyberzionCase
   },
   {
     id: 3,
@@ -26,5 +31,6 @@ export const portfolioData = [
     description:
       "Lorem ipsum dolor sit amet consectetur. Etiam est commodo et pulvinar commodo tortor donec duis tellus. Mattis et id nullam adipiscing.",
     imageSrc: "/exchange.jpg",
+    content: content.DialTraceCase
   },
 ];

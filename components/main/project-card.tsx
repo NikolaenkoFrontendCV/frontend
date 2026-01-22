@@ -5,17 +5,27 @@ import CardInfo from "../cards/card-info";
 import CardTitle from "../cards/card-title";
 import CardDescription from "../cards/card-description";
 import CardAction from "../cards/card-action";
-import ShowMoreLink from "../links/show-more-link";
+import ShowMoreButton from "../buttons/show-more-button";
+import { useAppDispatch } from "@/lib/hooks/redux-store";
+import { setDialogContent } from "@/lib/features/dialog-conent/dialogContentSlice";
 
 export default function ProjectCard({
+  id,
   imageSrc,
   title,
   description,
 }: {
+  id: number;
   imageSrc: string;
   title: string;
   description: string;
 }) {
+  const dispatch = useAppDispatch();
+
+  function handleShowMore() {
+    dispatch(setDialogContent({type: "cases", itemId: id}))
+  }
+
   return (
     <Card>
       <CardImage src={imageSrc} alt={title} />
@@ -25,7 +35,7 @@ export default function ProjectCard({
           <CardDescription>{description}</CardDescription>
         </CardInfo>
         <CardAction>
-          <ShowMoreLink href={"#"} />
+          <ShowMoreButton onClick={handleShowMore}/>
         </CardAction>
       </CardContent>
     </Card>
