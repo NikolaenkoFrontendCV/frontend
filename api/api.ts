@@ -4,7 +4,7 @@ class HttpRequest {
   #api_host: string;
 
   constructor() {
-    this.#api_host = "https://backend-five-wheat-50.vercel.app/";
+    this.#api_host = "https://backend-five-wheat-50.vercel.app";
   }
 
   async get({ onError, onSuccess, query }: GetQuery & { query: string }) {
