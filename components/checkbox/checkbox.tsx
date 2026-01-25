@@ -31,7 +31,7 @@ export default function Checkbox({
           id={label + "-filter"}
           onChange={handleChange}
           type="checkbox"
-          className="absolute h-full w-full opacity-0"
+          className="absolute h-full w-full cursor-pointer opacity-0"
         ></input>
         {isNotAll && <NotAllCheckIcon />}
         {isCheck && <CheckIcon />}

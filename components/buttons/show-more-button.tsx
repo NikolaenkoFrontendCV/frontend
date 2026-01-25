@@ -8,7 +8,7 @@ export default function ShowMoreButton({
   onClick?: () => void;
 }) {
   return (
-    <button onClick={onClick} className={'cursor-pointer ' + className}>
+    <button onClick={onClick} className={"cursor-pointer " + className}>
       <div
         className="font-lato relative flex shrink-0 flex-col justify-center text-[16px] leading-0 whitespace-nowrap text-[#a3a3a3] not-italic"
         data-node-id="2117:215"

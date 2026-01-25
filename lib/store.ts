@@ -2,12 +2,14 @@
 
 import { configureStore } from "@reduxjs/toolkit";
 import dialogContentReducer from "./features/dialog-conent/dialogContentSlice";
+import langReducer from "./features/lang/langSlice";
 // ...
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       dialogContent: dialogContentReducer,
+      lang: langReducer,
     },
   });
 };

@@ -23,7 +23,7 @@ export default function ProjectCard({
   const dispatch = useAppDispatch();
 
   function handleShowMore() {
-    dispatch(setDialogContent({type: "cases", itemId: id}))
+    dispatch(setDialogContent({ type: "cases", itemId: id }));
   }
 
   return (
@@ -35,7 +35,7 @@ export default function ProjectCard({
           <CardDescription>{description}</CardDescription>
         </CardInfo>
         <CardAction>
-          <ShowMoreButton onClick={handleShowMore}/>
+          <ShowMoreButton onClick={handleShowMore} />
         </CardAction>
       </CardContent>
     </Card>

@@ -22,7 +22,7 @@ export default function ExperienceStep({
   const dispatch = useAppDispatch();
 
   function handleShowMore() {
-    dispatch(setDialogContent({type: 'experience', itemId: id}));
+    dispatch(setDialogContent({ type: "experience", itemId: id }));
   }
 
   return (
@@ -67,7 +67,7 @@ export default function ExperienceStep({
           {children}
         </div>
         <ShowMoreButton
-          className="relative flex shrink-0 content-stretch items-center justify-center gap-1.5 cursor-pointer"
+          className="relative flex shrink-0 cursor-pointer content-stretch items-center justify-center gap-1.5"
           onClick={handleShowMore}
         />
       </AnimationText>

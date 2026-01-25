@@ -7,6 +7,7 @@ import Fuse from "fuse.js";
 import SearchIcon from "@/public/search-icon.svg";
 import Checkbox from "../checkbox/checkbox";
 import AnimationContainer from "../containers/animation-container";
+import { motion } from "framer-motion";
 
 const fuse = new Fuse(skills, {
   keys: [
@@ -94,7 +95,7 @@ export default function Skills() {
           ))}
         </div>
         <div
-          className="relative flex h-87.25 w-160 shrink-0 flex-col content-stretch items-start overflow-x-clip overflow-y-auto"
+          className="flex h-87.25 flex-col items-start overflow-x-clip overflow-y-auto"
           data-name="Skills-list"
           data-node-id="2109:527"
         >
@@ -102,7 +103,7 @@ export default function Skills() {
             result.map((skill) => <Skill key={skill.id} {...skill} />)
           ) : (
             <p
-              className="relative mt-0 ml-0 text-[18px] tracking-[1.2px] text-white"
+              className="mt-0 ml-0 text-[18px] tracking-[1.2px] text-white"
               data-node-id="2109:921"
             >
               No skills found
@@ -116,15 +117,32 @@ export default function Skills() {
 
 function Skill(props: Skill) {
   const image = props.image.replace("@/public", "");
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const variants = {
+    open: {
+      WebkitLineClamp: "unset",
+      overflow: "hidden",
+      height: "auto",
+      display: "block",
+      WebkitBoxOrient: "vertical",
+    },
+    closed: {
+      overflow: "hidden",
+      height: "20px",
+      display: "-webkit-box",
+      WebkitBoxOrient: "vertical",
+    },
+  };
 
   return (
     <div
-      className="relative flex w-full shrink-0 content-stretch items-center gap-6.75 overflow-clip border-t-0 border-r-0 border-b border-l-0 border-solid border-[#a3a3a3] px-4 py-3.75"
+      className="flex w-full shrink-0 content-stretch items-start gap-6.75 overflow-clip border-t-0 border-r-0 border-b border-l-0 border-solid border-[#a3a3a3] px-4 py-3.75"
       data-name="Skill"
       data-node-id="2109:920"
     >
       <div
-        className="relative size-10 shrink-0"
+        className="relative mt-2.5 size-10 shrink-0"
         data-name="next-js-svgrepo-com 1"
         data-node-id="I2109:920;2109:439"
       >
@@ -140,21 +158,47 @@ function Skill(props: Skill) {
         </div>
       </div>
       <div
-        className="font-lato relative inline-grid shrink-0 grid-cols-[max-content] grid-rows-[max-content] justify-items-start leading-[normal] not-italic"
+        className="font-lato flex w-full flex-col justify-items-start gap-3 leading-[normal] not-italic"
         data-node-id="I2109:920;2109:384"
       >
         <p
-          className="relative col-1 row-1 mt-0 ml-0 text-[24px] tracking-[1.2px] text-white"
+          className="mt-0 ml-0 text-[24px] tracking-[1.2px] text-white"
           data-node-id="I2109:920;2109:382"
         >
           {props.name}
         </p>
-        <p
-          className="relative col-1 row-1 mt-10.5 ml-0 text-[16px] tracking-[0.8px] text-[#d4d4d4]"
+        <motion.p
+          animate={isOpen ? "open" : "closed"}
+          variants={variants}
+          transition={{ duration: 0.3 }}
+          className="ml-0 w-full text-[16px] tracking-[1px] text-wrap text-gray-300"
           data-node-id="I2109:920;2109:383"
         >
-          {props.shortDescription}
-        </p>
+          {props.fullDescription}
+        </motion.p>
+      </div>
+      <div className="pt-5">
+        <button
+          style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0)" }}
+          className={`text-sm text-blue-500 underline transition-all`}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 9L12 15L18 9"
+              stroke="#D4D4D4"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   );
