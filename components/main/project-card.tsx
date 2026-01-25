@@ -8,6 +8,7 @@ import CardAction from "../cards/card-action";
 import ShowMoreButton from "../buttons/show-more-button";
 import { useAppDispatch } from "@/lib/hooks/redux-store";
 import { setDialogContent } from "@/lib/features/dialog-conent/dialogContentSlice";
+import useGetLang from "@/lib/hooks/get-lang";
 
 export default function ProjectCard({
   id,
@@ -18,9 +19,13 @@ export default function ProjectCard({
   id: number;
   imageSrc: string;
   title: string;
-  description: string;
+  description: {
+    ru: string;
+    en: string;
+  };
 }) {
   const dispatch = useAppDispatch();
+  const lang = useGetLang();
 
   function handleShowMore() {
     dispatch(setDialogContent({ type: "cases", itemId: id }));
@@ -32,7 +37,7 @@ export default function ProjectCard({
       <CardContent>
         <CardInfo>
           <CardTitle>{title}</CardTitle>
-          <CardDescription>{description}</CardDescription>
+          <CardDescription>{description[lang]}</CardDescription>
         </CardInfo>
         <CardAction>
           <ShowMoreButton onClick={handleShowMore} />

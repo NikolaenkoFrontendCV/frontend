@@ -7,8 +7,8 @@ import { RootState } from "@/lib/store";
 import { experience } from "@/data/experience";
 import { useAppDispatch } from "@/lib/hooks/redux-store";
 import { portfolioData } from "@/data/portfolio";
-import { usePathname } from "next/navigation";
-import { Lang } from "@/data/experienc-content";
+import useGetLang from "@/lib/hooks/get-lang";
+import { useEffect, useState } from "react";
 
 const variants = {
   initial: { opacity: 0, display: "none" },
@@ -18,12 +18,14 @@ const variants = {
 
 export default function Dialog() {
   const dialogContent = useSelector((state: RootState) => state.dialogContent);
+  const [isLoad, setIsLoad] = useState(false);
   const dispatch = useAppDispatch();
-  const path = usePathname();
-  let lang: Lang = "ru";
-  if (path.includes("/en")) {
-    lang = "en";
-  }
+  const lang = useGetLang();
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (!isLoad) setIsLoad(true);
+  }, [isLoad])
 
   function handleCloseDialog() {
     dispatch({ type: "dialogContent/closeDialog" });
@@ -32,14 +34,16 @@ export default function Dialog() {
   return (
     <motion.div
       variants={variants}
-      animate={dialogContent.isOpen ? "visible" : "hidden"}
+      initial={!isLoad && 'hidden'}
+      animate={dialogContent.isOpen && isLoad ? "visible" : "hidden"}
       className="fixed top-0 left-0 z-100 flex h-screen w-full items-center justify-center bg-gray-900/50 backdrop-blur-sm"
+      style={!isLoad ? {display: 'none'} : {display: "flex"}}
     >
       <motion.div
-        className="flex w-full max-w-xl flex-col max-h-[calc(100vh-80px)] items-center gap-4 rounded-lg border border-gray-400 bg-gray-900 p-6"
+        className="flex max-h-[calc(100vh-80px)] w-full max-w-xl flex-col items-center gap-4 rounded-lg border border-gray-400 bg-gray-900 p-6"
         animate={dialogContent.isOpen ? { scale: 1 } : { scale: 0.8 }}
       >
-        <div className="w-full h-full overflow-y-scroll">
+        <div className="h-full w-full overflow-y-scroll">
           {getContent(dialogContent, lang)}
         </div>
         <Button onClick={handleCloseDialog}>Close</Button>
@@ -54,7 +58,7 @@ function getContent(data: { type: string; itemId: number }, lang: "ru" | "en") {
     case "experience":
       return experience[data.itemId].content({ lang });
     case "cases":
-      return portfolioData[data.itemId].content();
+      return portfolioData[data.itemId].content({ lang });
     default:
       return defaultValue();
   }

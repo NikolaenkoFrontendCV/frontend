@@ -8,7 +8,6 @@ import Skills from "../../components/main/skills";
 import Section from "../../components/section/section";
 import Image from "next/image";
 import Link from "next/link";
-import ArrowLink from "@/components/links/arrow-link";
 import { portfolioData } from "@/data/portfolio";
 import ProjectCard from "@/components/main/project-card";
 import Form from "@/components/form/form";
@@ -16,10 +15,21 @@ import { motion, MotionConfig } from "framer-motion";
 import AnimationText from "@/components/typography/animation-text";
 import Dialog from "@/components/dialog/dialog";
 import StoreProvider from "../StoreProvider";
-import Preview from "@/components/main/preview";
+// import Preview from "@/components/main/preview";
+import { useRef } from "react";
 // import EllipsFon from "@/components/layout/fon-figure";
 
 export default function Page() {
+  const ref = useRef<HTMLAnchorElement>(null);
+
+  const filename = "CV_Николаенко_Фронтенд";
+
+  function handleDownload() {
+    if (ref.current) {
+      ref.current.click();
+    }
+  }
+
   return (
     <MotionConfig transition={{ duration: 0.5, ease: "easeInOut" }}>
       <StoreProvider>
@@ -129,7 +139,15 @@ export default function Page() {
               </AnimationText>
               <ButtonSet>
                 <Button style="filled">Contact me</Button>
-                <Button style="outlined">Download CV</Button>
+                <Button onClick={handleDownload} style="outlined">
+                  Download CV
+                </Button>
+                <Link
+                  ref={ref}
+                  href={"/" + filename + ".pdf"}
+                  className="hidden"
+                  download={true}
+                />
               </ButtonSet>
             </div>
           </Section>
@@ -144,7 +162,15 @@ export default function Page() {
               <Skills />
               <ButtonSet>
                 <Button style="filled">Contact me</Button>
-                <Button style="outlined">Download CV</Button>
+                <Button onClick={handleDownload} style="outlined">
+                  Download CV
+                </Button>
+                <Link
+                  ref={ref}
+                  href={"/" + filename + ".pdf"}
+                  className="hidden"
+                  download={true}
+                />
               </ButtonSet>
             </div>
           </Section>
@@ -208,7 +234,15 @@ export default function Page() {
 
             <ButtonSet>
               <Button style="filled">Contact me</Button>
-              <Button style="outlined">Download CV</Button>
+              <Button onClick={handleDownload} style="outlined">
+                Download CV
+              </Button>
+              <Link
+                ref={ref}
+                href={"/" + filename + ".pdf"}
+                className="hidden"
+                download={true}
+              />
             </ButtonSet>
           </Section>
           <Section
@@ -238,11 +272,13 @@ export default function Page() {
                 >
                   <p className="leading-[normal]">or</p>
                 </div> */}
-                <Link href="https://github.com/AlexandrNikolaenko" target="_blank"
+                <Link
+                  href="https://github.com/AlexandrNikolaenko"
+                  target="_blank"
                   className="font-lato relative flex shrink-0 flex-col justify-center text-[16px] leading-0 whitespace-nowrap text-white not-italic"
                   data-node-id="2124:500"
                 >
-                  <p className="leading-[normal] underline underline-offset-1 decoration-solid [text-underline-position:from-font]">
+                  <p className="leading-[normal] underline decoration-solid underline-offset-1 [text-underline-position:from-font]">
                     Look at my github
                   </p>
                 </Link>
@@ -259,7 +295,7 @@ export default function Page() {
           </Section>
         </Wrapper>
         <Dialog />
-        <Preview />
+        {/* <Preview /> */}
       </StoreProvider>
     </MotionConfig>
   );
