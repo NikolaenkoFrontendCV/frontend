@@ -1,4 +1,4 @@
-import LinkedInIcon from "@/public/linkedin-icon.svg";
+// import LinkedInIcon from "@/public/linkedin-icon.svg";
 import HhIcon from "@/public/hh-icon.svg";
 import TelegramIcon from "@/public/telegram-icon.svg";
 import GmailIcon from "@/public/gmail-icon.svg";
@@ -15,7 +15,7 @@ export default function ContactSide() {
       data-name="Platforms"
       data-node-id="2113:150"
     >
-      <Link
+      {/* <Link
         href={"#"}
         className="relative flex size-10 shrink-0 content-stretch items-center overflow-clip"
         data-name="linkedin-svgrepo-com 1"
@@ -27,9 +27,9 @@ export default function ContactSide() {
         >
           <LinkedInIcon />
         </div>
-      </Link>
+      </Link> */}
       <Link
-        href={"#"}
+        href={"https://spb.hh.ru/resume/120d7bfbff0dc9442f0039ed1f346d3466766f"}
         className="relative size-10 shrink-0"
         data-name="image 2"
         data-node-id="2113:157"
@@ -37,7 +37,7 @@ export default function ContactSide() {
         <HhIcon />
       </Link>
       <Link
-        href={"#"}
+        href={"https://t.me/AliBabagg"}
         className="relative size-10 shrink-0 overflow-clip"
         data-name="telegram-svgrepo-com 1"
         data-node-id="2113:158"
@@ -45,7 +45,7 @@ export default function ContactSide() {
         <TelegramIcon />
       </Link>
       <Link
-        href={"#"}
+        href={"mailto:nikol.alex06@mail.ru"}
         className="relative flex size-10 shrink-0 content-stretch items-center overflow-clip rounded-[20px]"
         data-name="gmail-svgrepo-com 1"
         data-node-id="2113:164"

@@ -16,7 +16,7 @@ import { motion, MotionConfig } from "framer-motion";
 import AnimationText from "@/components/typography/animation-text";
 import Dialog from "@/components/dialog/dialog";
 import StoreProvider from "../StoreProvider";
-import Preview from "@/components/main/preview";
+// import Preview from "@/components/main/preview";
 import { useRef } from "react";
 // import EllipsFon from "@/components/layout/fon-figure";
 
@@ -292,7 +292,7 @@ export default function Page() {
           </Section>
         </Wrapper>
         <Dialog />
-        <Preview />
+        {/* <Preview /> */}
       </StoreProvider>
     </MotionConfig>
   );
