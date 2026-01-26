@@ -17,10 +17,12 @@ import Dialog from "@/components/dialog/dialog";
 import StoreProvider from "../StoreProvider";
 // import Preview from "@/components/main/preview";
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 // import EllipsFon from "@/components/layout/fon-figure";
 
 export default function Page() {
   const ref = useRef<HTMLAnchorElement>(null);
+  const router = useRouter();
 
   const filename = "CV_Николаенко_Фронтенд";
 
@@ -28,6 +30,10 @@ export default function Page() {
     if (ref.current) {
       ref.current.click();
     }
+  }
+
+  function handleScrollToContact() {
+    router.push('/#contact');
   }
 
   return (
@@ -138,7 +144,7 @@ export default function Page() {
                 </p>
               </AnimationText>
               <ButtonSet>
-                <Button style="filled">Contact me</Button>
+                <Button style="filled" onClick={handleScrollToContact}>Contact me</Button>
                 <Button onClick={handleDownload} style="outlined">
                   Download CV
                 </Button>
@@ -161,7 +167,7 @@ export default function Page() {
               <SectionTitle number="02" title="Skills" />
               <Skills />
               <ButtonSet>
-                <Button style="filled">Contact me</Button>
+                <Button style="filled" onClick={handleScrollToContact}>Contact me</Button>
                 <Button onClick={handleDownload} style="outlined">
                   Download CV
                 </Button>
@@ -233,7 +239,7 @@ export default function Page() {
             </div>
 
             <ButtonSet>
-              <Button style="filled">Contact me</Button>
+              <Button style="filled" onClick={handleScrollToContact}>Contact me</Button>
               <Button onClick={handleDownload} style="outlined">
                 Download CV
               </Button>
