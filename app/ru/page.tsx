@@ -36,23 +36,23 @@ export default function Page() {
         <Wrapper>
           <Section data-name="Intro" className="flex items-center" id="intro">
             {/* <EllipsFon bottom="63px" left="211px" x={632 /2} y={519/2} rotate={0}/> */}
-            <div className="flex w-full items-start justify-between">
+            <div className="flex w-full gap-5 max-sm:flex-col max-sm:gap-10 items-start max-sm:items-center justify-between">
               <motion.div
                 initial={{ opacity: 0, transform: "translateX(-20px)" }}
                 whileInView={{ opacity: 1, transform: "translateX(0)" }}
-                className="top-89.25 left-0 flex w-full translate-y-[-50%] flex-col justify-center font-['Inter:Regular',sans-serif] text-[16px] leading-0 font-normal text-[#d4d4d4] not-italic"
+                className="flex w-full max-sm:max-w-76.75 translate-y-[-50%] flex-col justify-center font-['Inter:Regular',sans-serif] text-[16px] leading-0 font-normal text-[#d4d4d4] not-italic"
                 data-node-id="2107:142"
               >
                 <p className="max-w-76.75 leading-normal whitespace-pre-wrap text-gray-300">
                   Приветствую! Меня зовут Александр. <br />Я - frontend
-                  разработчик с 3 годами опыта, проектирую архитектуру,
+                  разработчик с 3 годами опыта, проектирую архитектуру и
                   интерфейсы приложений.
                 </p>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, transform: "translateX(20px)" }}
                 whileInView={{ opacity: 1, transform: "translateX(0)" }}
-                className="top-86.75 left-165 flex w-full translate-y-[-50%] flex-col justify-center font-['Inter:Regular',sans-serif] text-[16px] leading-0 font-normal whitespace-pre-wrap text-gray-300 not-italic"
+                className="top-86.75 left-165 flex w-full max-sm:max-w-76.75 translate-y-[-50%] flex-col justify-center font-['Inter:Regular',sans-serif] text-[16px] leading-0 font-normal whitespace-pre-wrap text-gray-300 not-italic"
                 data-node-id="2127:1008"
               >
                 <span className="mb-0 leading-normal">
