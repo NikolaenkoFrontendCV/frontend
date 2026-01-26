@@ -27,15 +27,15 @@ export default function ExperienceStep({
 
   return (
     <div
-      className={`flex w-full shrink-0 content-stretch items-center justify-center gap-10 overflow-clip px-10 py-2.5 ${reverse ? "flex-row-reverse" : ""}`}
+      className={`flex relative overflow-visible max-sm:flex-col max-sm:items-start w-full shrink-0 content-stretch items-center justify-center gap-10 max-sm:gap-5 px-10 max-sm:px-5 max-sm:py-2.5 py-2.5 ${reverse ? "flex-row-reverse" : ""}`}
     >
       <AnimationText
         direction={reverse ? "rightToLeft" : "leftToRight"}
-        className={`flex min-h-px w-full min-w-px flex-col content-stretch ${reverse ? "items-start" : "items-end"} justify-center`}
+        className={`flex min-h-px w-full min-w-px flex-col content-stretch ${reverse ? "items-start" : "items-end"} max-sm:items-start justify-center`}
         data-node-id="2117:169"
       >
         <div
-          className="flex shrink-0 flex-col content-stretch items-center justify-center gap-2.5 leading-0 whitespace-nowrap not-italic"
+          className="flex shrink-0 flex-col content-stretch items-center max-sm:items-start justify-center gap-2.5 leading-0 whitespace-nowrap not-italic"
           data-node-id="2117:170"
         >
           <div
@@ -54,7 +54,7 @@ export default function ExperienceStep({
           </div>
         </div>
       </AnimationText>
-      <div className="aspect-square min-w-3 rounded-full bg-white"></div>
+      <div className="aspect-square min-w-3 rounded-full bg-white max-sm:absolute top-4 -left-1.5"></div>
       <AnimationText
         direction={reverse ? "leftToRight" : "rightToLeft"}
         className="relative flex w-full flex-col content-stretch items-start justify-center gap-2.5"

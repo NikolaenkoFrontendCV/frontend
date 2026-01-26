@@ -188,7 +188,7 @@ export default function Page() {
               data-name="Info"
               data-node-id="2117:183"
             >
-              <div className="absolute top-0 left-[50%] h-full w-px rounded-full bg-white"></div>
+              <div className="absolute top-0 left-[50%] h-full w-px rounded-full bg-white max-sm:left-0"></div>
               <ExperienceStep
                 id={0}
                 position="Middle Frontend-разработчик"
@@ -256,7 +256,7 @@ export default function Page() {
               data-name="Portfolio-list"
               data-node-id="2124:483"
             >
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-5">
                 {portfolioData.map((item) => (
                   <ProjectCard key={item.id} {...item} />
                 ))}

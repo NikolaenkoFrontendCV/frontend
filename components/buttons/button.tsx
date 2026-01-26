@@ -55,7 +55,7 @@ export function ButtonSet({ children }: { children: React.ReactNode }) {
   return (
     <AnimationContainer
       direction="bottomToTop"
-      className="relative flex shrink-0 content-stretch items-start gap-5"
+      className="relative flex shrink-0 content-stretch items-start gap-5 max-[400px]:flex-col max-sm:items-center"
     >
       {children}
     </AnimationContainer>

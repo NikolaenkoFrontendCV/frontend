@@ -73,9 +73,9 @@ export default function Skills() {
           <SearchIcon />
         </div>
       </AnimationContainer>
-      <AnimationContainer className="relative flex h-87.25 w-full shrink-0 content-stretch items-start justify-between">
+      <AnimationContainer className="relative flex max-sm:flex-col max-sm:gap-5 h-87.25 max-sm:h-auto w-full shrink-0 content-stretch items-start justify-between">
         <div
-          className="relative flex w-55.75 shrink-0 flex-col content-stretch items-start gap-5"
+          className="relative flex w-55.75 max-sm:w-full shrink-0 flex-col max-sm:flex-wrap max-sm:flex-row content-stretch items-start gap-5 max-sm:gap-y-2.5 max-sm:gap-x-6.25"
           data-name="Filter-items"
           data-node-id="2109:836"
         >
@@ -137,7 +137,7 @@ function Skill(props: Skill) {
 
   return (
     <div
-      className="flex w-full shrink-0 content-stretch items-start gap-6.75 overflow-clip border-t-0 border-r-0 border-b border-l-0 border-solid border-[#a3a3a3] px-4 py-3.75"
+      className="flex w-full shrink-0 content-stretch items-start gap-6.75 max-sm:gap-2.5 overflow-clip border-t-0 border-r-0 border-b border-l-0 border-solid border-[#a3a3a3] px-4 py-3.75"
       data-name="Skill"
       data-node-id="2109:920"
     >
@@ -158,11 +158,11 @@ function Skill(props: Skill) {
         </div>
       </div>
       <div
-        className="font-lato flex w-full flex-col justify-items-start gap-3 leading-[normal] not-italic"
+        className="font-lato flex w-full flex-col justify-items-start gap-3 max-sm:gap-2.5 leading-[normal] not-italic"
         data-node-id="I2109:920;2109:384"
       >
         <p
-          className="mt-0 ml-0 text-[24px] tracking-[1.2px] text-white"
+          className="mt-0 ml-0 text-[24px] max-sm:text-lg tracking-[1.2px] text-white"
           data-node-id="I2109:920;2109:382"
         >
           {props.name}
@@ -171,7 +171,7 @@ function Skill(props: Skill) {
           animate={isOpen ? "open" : "closed"}
           variants={variants}
           transition={{ duration: 0.3 }}
-          className="ml-0 w-full text-[16px] tracking-[1px] text-wrap text-gray-300"
+          className="ml-0 w-full text-[16px] max-sm:text-sm tracking-[1px] text-wrap text-gray-300"
           data-node-id="I2109:920;2109:383"
         >
           {props.fullDescription}

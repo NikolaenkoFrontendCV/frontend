@@ -30,7 +30,7 @@ export default function Header() {
           <NavigationLink href="/#contacts">Contacts</NavigationLink>
         </nav>
       </div>
-      <div className="realtive w-full">
+      <div className="realtive w-full h-0">
         <nav onClick={handleChangeOpen} style={isOpen ? {transform: "translateX(0)"} : {transform: "translateX(-100%)"}} className="realtive transition-all bg-gray-900 z-100 h-screen w-screen flex flex-col gap-5  items-center justify-center">
           <NavigationLink href="/#about">About</NavigationLink>
           <NavigationLink href="/#skills">Skills</NavigationLink>

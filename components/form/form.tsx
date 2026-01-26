@@ -78,7 +78,7 @@ export default function Form() {
         onSubmit={handleSubmit(onSubmit)}
         className="flex w-full max-w-147.75 flex-col items-center gap-5 rounded-[20px] border border-gray-400 p-5"
       >
-        <div className="flex w-full items-center gap-2.5">
+        <div className="flex max-sm:flex-col w-full items-center gap-2.5">
           <Controller
             control={control}
             name="phone"
