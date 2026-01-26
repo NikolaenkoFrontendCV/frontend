@@ -128,7 +128,7 @@ export default function Page() {
               <SectionTitle number="01" title="About Me" />
               <AnimationText
                 direction="bottomToTop"
-                className="font-lato relative flex w-min min-w-full shrink-0 flex-col justify-center text-center text-[16px] leading-0 text-[#a3a3a3]"
+                className="font-lato relative flex w-min min-w-full shrink-0 flex-col justify-center text-justify indent-8 text-[16px] leading-0 text-[#a3a3a3]"
                 data-node-id="2109:177"
               >
                 <p className="leading-normal whitespace-pre-wrap">
@@ -136,6 +136,8 @@ export default function Page() {
                   на производительность и удобство пользователя. Работал в
                   командах от 2 до 7 человек, участвовал в разработке сложных
                   высоконагруженных систем, включая телеком- и финтех-проекты.
+                </p>
+                <p className="leading-normal whitespace-pre-wrap">
                   Имею опыт полного цикла разработки: от проектирования
                   структуры приложения и выбора UI-подходов до рефакторинга,
                   оптимизации и поддержки существующих решений. Постоянно
