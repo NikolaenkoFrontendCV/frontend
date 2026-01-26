@@ -8,6 +8,8 @@ import SearchIcon from "@/public/search-icon.svg";
 import Checkbox from "../checkbox/checkbox";
 import AnimationContainer from "../containers/animation-container";
 import { motion } from "framer-motion";
+import useGetLang from "@/lib/hooks/get-lang";
+import { Lang } from "@/data/experienc-content";
 
 const fuse = new Fuse(skills, {
   keys: [
@@ -22,6 +24,7 @@ const fuse = new Fuse(skills, {
 export default function Skills() {
   const [search, setSearch] = useState<string>("");
   const [filter, setFilter] = useState<string[]>(skillsTypes);
+  const lang = useGetLang();
 
   function handleSearch(value: string) {
     setSearch(value);
@@ -100,13 +103,17 @@ export default function Skills() {
           data-node-id="2109:527"
         >
           {result.length !== 0 ? (
-            result.map((skill) => <Skill key={skill.id} {...skill} />)
+            result.map((skill) => <Skill key={skill.id} {...skill} lang={lang}/>)
           ) : (
             <p
               className="mt-0 ml-0 text-[18px] tracking-[1.2px] text-white"
               data-node-id="2109:921"
             >
-              No skills found
+              {
+                lang == 'ru' ?
+                'Навыки не найдены'
+                : 'No skills found'
+              }
             </p>
           )}
         </div>
@@ -115,7 +122,7 @@ export default function Skills() {
   );
 }
 
-function Skill(props: Skill) {
+function Skill(props: Skill & {lang: Lang}) {
   const image = props.image.replace("@/public", "");
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -174,7 +181,7 @@ function Skill(props: Skill) {
           className="ml-0 w-full text-[16px] tracking-[1px] text-wrap text-gray-300 max-sm:text-sm"
           data-node-id="I2109:920;2109:383"
         >
-          {props.fullDescription}
+          {props.fullDescription[props.lang]}
         </motion.p>
       </div>
       <div className="pt-5">

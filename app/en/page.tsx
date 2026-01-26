@@ -129,15 +129,17 @@ export default function Page() {
               <SectionTitle number="01" title="About Me" />
               <AnimationText
                 direction="bottomToTop"
-                className="font-lato relative flex w-min min-w-full shrink-0 flex-col justify-center text-center text-[16px] leading-0 text-[#a3a3a3]"
+                className="font-lato relative flex w-min min-w-full shrink-0 flex-col justify-center text-justify indent-8 text-[16px] leading-0 text-[#a3a3a3]"
                 data-node-id="2109:177"
               >
                 <p className="leading-normal whitespace-pre-wrap">
                   I specialize in React and Next.js applications with a focus on
                   performance and user experience. I&apos;ve worked in teams of
                   2 to 7 people, contributing to the development of high-load
-                  systems, including telecom and fintech projects. I have
-                  experience with the full development cycle: from app design to
+                  systems, including telecom and fintech projects. 
+                </p>
+                <p className="leading-normal whitespace-pre-wrap">
+                  I have experience with the full development cycle: from app design to
                   optimization and testing. I constantly learn new technologies,
                   participate in hackathons, and keep up with trends.
                 </p>
