@@ -33,7 +33,7 @@ export default function Page() {
   }
 
   function handleScrollToContact() {
-    router.push("/#contact");
+    router.prefetch("#contacts");
   }
 
   return (

@@ -18,10 +18,13 @@ import Dialog from "@/components/dialog/dialog";
 import StoreProvider from "../StoreProvider";
 // import Preview from "@/components/main/preview";
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 // import EllipsFon from "@/components/layout/fon-figure";
 
 export default function Page() {
   const ref = useRef<HTMLAnchorElement>(null);
+  const router = useRouter();
+
   const filename = "CV_Nikolaenko_Frontend";
 
   function handleDownload() {
@@ -30,17 +33,21 @@ export default function Page() {
     }
   }
 
+  function handleScrollToContact() {
+    router.push("#contacts");
+  }
+
   return (
     <MotionConfig transition={{ duration: 0.5, ease: "easeInOut" }}>
       <StoreProvider>
         <Wrapper>
           <Section data-name="Intro" className="flex items-center" id="intro">
             {/* <EllipsFon bottom="63px" left="211px" x={632 /2} y={519/2} rotate={0}/> */}
-            <div className="flex w-full items-start justify-between">
+            <div className="flex w-full items-start justify-between gap-5 max-sm:flex-col max-sm:items-center max-sm:gap-10">
               <motion.div
                 initial={{ opacity: 0, transform: "translateX(-20px)" }}
                 whileInView={{ opacity: 1, transform: "translateX(0)" }}
-                className="top-89.25 left-0 flex w-full translate-y-[-50%] flex-col justify-center font-['Inter:Regular',sans-serif] text-[16px] leading-0 font-normal text-[#d4d4d4] not-italic"
+                className="top-89.25 left-0 flex w-full translate-y-[-50%] flex-col justify-center font-['Inter:Regular',sans-serif] text-[16px] leading-0 font-normal text-[#d4d4d4] not-italic max-sm:max-w-76.75"
                 data-node-id="2107:142"
               >
                 <p className="max-w-76.75 leading-normal whitespace-pre-wrap text-gray-300">
@@ -52,7 +59,7 @@ export default function Page() {
               <motion.div
                 initial={{ opacity: 0, transform: "translateX(20px)" }}
                 whileInView={{ opacity: 1, transform: "translateX(0)" }}
-                className="top-86.75 left-165 flex w-full translate-y-[-50%] flex-col justify-center font-['Inter:Regular',sans-serif] text-[16px] leading-0 font-normal whitespace-pre-wrap text-gray-300 not-italic"
+                className="top-86.75 left-165 flex w-full translate-y-[-50%] flex-col justify-center font-['Inter:Regular',sans-serif] text-[16px] leading-0 font-normal whitespace-pre-wrap text-gray-300 not-italic max-sm:max-w-76.75"
                 data-node-id="2127:1008"
               >
                 <span className="mb-0 leading-normal">
@@ -136,7 +143,9 @@ export default function Page() {
                 </p>
               </AnimationText>
               <ButtonSet>
-                <Button style="filled">Contact me</Button>
+                <Button style="filled" onClick={handleScrollToContact}>
+                  Contact me
+                </Button>
                 <Button onClick={handleDownload} style="outlined">
                   Download CV
                 </Button>
@@ -159,7 +168,9 @@ export default function Page() {
               <SectionTitle number="02" title="Skills" />
               <Skills />
               <ButtonSet>
-                <Button style="filled">Contact me</Button>
+                <Button style="filled" onClick={handleScrollToContact}>
+                  Contact me
+                </Button>
                 <Button onClick={handleDownload} style="outlined">
                   Download CV
                 </Button>
@@ -186,7 +197,7 @@ export default function Page() {
               data-name="Info"
               data-node-id="2117:183"
             >
-              <div className="absolute top-0 left-[50%] h-full w-px rounded-full bg-white"></div>
+              <div className="absolute top-0 left-[50%] h-full w-px rounded-full bg-white max-sm:left-0"></div>
               <ExperienceStep
                 id={0}
                 position="Middle Frontend-разработчик"
@@ -230,7 +241,9 @@ export default function Page() {
             </div>
 
             <ButtonSet>
-              <Button style="filled">Contact me</Button>
+              <Button style="filled" onClick={handleScrollToContact}>
+                Contact me
+              </Button>
               <Button onClick={handleDownload} style="outlined">
                 Download CV
               </Button>
@@ -253,7 +266,7 @@ export default function Page() {
               data-name="Portfolio-list"
               data-node-id="2124:483"
             >
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-2 gap-5 max-lg:grid-cols-1">
                 {portfolioData.map((item) => (
                   <ProjectCard key={item.id} {...item} />
                 ))}
