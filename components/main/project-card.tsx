@@ -37,7 +37,9 @@ export default function ProjectCard({
       <CardContent>
         <CardInfo>
           <CardTitle>{title}</CardTitle>
-          <CardDescription className="line-clamp-4">{description[lang]}</CardDescription>
+          <CardDescription className="line-clamp-4">
+            {description[lang]}
+          </CardDescription>
         </CardInfo>
         <CardAction>
           <ShowMoreButton onClick={handleShowMore} />

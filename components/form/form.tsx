@@ -78,13 +78,15 @@ export default function Form() {
         onSubmit={handleSubmit(onSubmit)}
         className="flex w-full max-w-147.75 flex-col items-center gap-5 rounded-[20px] border border-gray-400 p-5"
       >
-        <div className="flex max-sm:flex-col w-full items-center gap-2.5">
+        <div className="flex w-full items-center gap-2.5 max-sm:flex-col">
           <Controller
             control={control}
             name="phone"
             render={({ field }) => (
               <FormControl error={Boolean(errors.phone)}>
-                <Label htmlFor={field.name}>{lang == 'en' ? "Your phone number*" : "Ваш номер телефона*" }</Label>
+                <Label htmlFor={field.name}>
+                  {lang == "en" ? "Your phone number*" : "Ваш номер телефона*"}
+                </Label>
                 <Input
                   {...field}
                   value={field.value || ""}
@@ -101,7 +103,9 @@ export default function Form() {
             name="email"
             render={({ field }) => (
               <FormControl error={Boolean(errors.email)}>
-                <Label htmlFor={field.name}>{lang == 'en' ? "Your email address*" : "Ваш email*" }</Label>
+                <Label htmlFor={field.name}>
+                  {lang == "en" ? "Your email address*" : "Ваш email*"}
+                </Label>
                 <Input
                   {...field}
                   value={field.value || ""}
@@ -118,7 +122,11 @@ export default function Form() {
           name="name"
           render={({ field }) => (
             <FormControl error={Boolean(errors.name)}>
-              <Label htmlFor={field.name}>{lang == 'en' ? "How should I address you*" : "Как мне к вам обращаться*" }</Label>
+              <Label htmlFor={field.name}>
+                {lang == "en"
+                  ? "How should I address you*"
+                  : "Как мне к вам обращаться*"}
+              </Label>
               <Input
                 {...field}
                 value={field.value || ""}
@@ -134,7 +142,9 @@ export default function Form() {
           name="company"
           render={({ field }) => (
             <FormControl error={Boolean(errors.company)}>
-              <Label htmlFor={field.name}>{lang == 'en' ? "Where are you from" : "Откуда вы" }</Label>
+              <Label htmlFor={field.name}>
+                {lang == "en" ? "Where are you from" : "Откуда вы"}
+              </Label>
               <Input
                 {...field}
                 value={field.value || ""}
@@ -150,7 +160,11 @@ export default function Form() {
           name="message"
           render={({ field }) => (
             <FormControl error={Boolean(errors.message)}>
-              <Label htmlFor={field.name}>{lang == 'en' ? "Additional information*" : "Дополнительная информация*" }</Label>
+              <Label htmlFor={field.name}>
+                {lang == "en"
+                  ? "Additional information*"
+                  : "Дополнительная информация*"}
+              </Label>
               <Textarea
                 {...field}
                 value={field.value || ""}
@@ -166,21 +180,14 @@ export default function Form() {
           onChange={setIsAgreementChecked}
         >
           <p>
-            {
-              lang == 'en' ?
-              'I agree to' :
-              'Подтверждаю согласие с'
-            }
-            {" "}
+            {lang == "en" ? "I agree to" : "Подтверждаю согласие с"}{" "}
             <Link
               href={"/privacy"}
               className="underline decoration-1 underline-offset-2"
             >
-              {
-                lang == 'en' ?
-                'the privacy policy and personal data processing' :
-                'политикой конфиденциальности и обработки персональных данных'
-              }
+              {lang == "en"
+                ? "the privacy policy and personal data processing"
+                : "политикой конфиденциальности и обработки персональных данных"}
             </Link>
           </p>
         </FormCheckbox>

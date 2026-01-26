@@ -11,7 +11,7 @@ export default function ContactSide() {
       animate={{ opacity: 1, transform: "translateX(0)" }}
       initial={{ opacity: 0, transform: "translateX(50%)" }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="fixed top-63 right-25 max-[1200px]:right-15 max-[1024px]:right-10 max-[756px]:right-5 max:[640px]:right-2.5 z-50 flex flex-col content-stretch items-start justify-center gap-2.5 rounded-[100px] border border-solid border-[#171717] bg-[rgba(23,23,23,0.5)] p-2.5 min-[1440px]:right-[calc(50%-620px)]"
+      className="max:[640px]:right-2.5 fixed top-63 right-25 z-50 flex flex-col content-stretch items-start justify-center gap-2.5 rounded-[100px] border border-solid border-[#171717] bg-[rgba(23,23,23,0.5)] p-2.5 max-[1200px]:right-15 max-[1024px]:right-10 max-[756px]:right-5 min-[1440px]:right-[calc(50%-620px)]"
       data-name="Platforms"
       data-node-id="2113:150"
     >

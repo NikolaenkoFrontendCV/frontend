@@ -11,7 +11,7 @@ export default function Footer() {
         data-node-id="2124:601"
       >
         <div
-          className="mx-auto px-2.5 max-[440px]:flex-col max-[440px]:items-start max-[440px]:gap-5 flex w-full max-w-202 content-stretch items-center justify-between"
+          className="mx-auto flex w-full max-w-202 content-stretch items-center justify-between px-2.5 max-[440px]:flex-col max-[440px]:items-start max-[440px]:gap-5"
           data-name="Inner"
           data-node-id="2133:449"
         >

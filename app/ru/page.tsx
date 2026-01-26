@@ -36,11 +36,11 @@ export default function Page() {
         <Wrapper>
           <Section data-name="Intro" className="flex items-center" id="intro">
             {/* <EllipsFon bottom="63px" left="211px" x={632 /2} y={519/2} rotate={0}/> */}
-            <div className="flex w-full gap-5 max-sm:flex-col max-sm:gap-10 items-start max-sm:items-center justify-between">
+            <div className="flex w-full items-start justify-between gap-5 max-sm:flex-col max-sm:items-center max-sm:gap-10">
               <motion.div
                 initial={{ opacity: 0, transform: "translateX(-20px)" }}
                 whileInView={{ opacity: 1, transform: "translateX(0)" }}
-                className="flex w-full max-sm:max-w-76.75 translate-y-[-50%] flex-col justify-center font-['Inter:Regular',sans-serif] text-[16px] leading-0 font-normal text-[#d4d4d4] not-italic"
+                className="flex w-full translate-y-[-50%] flex-col justify-center font-['Inter:Regular',sans-serif] text-[16px] leading-0 font-normal text-[#d4d4d4] not-italic max-sm:max-w-76.75"
                 data-node-id="2107:142"
               >
                 <p className="max-w-76.75 leading-normal whitespace-pre-wrap text-gray-300">
@@ -52,7 +52,7 @@ export default function Page() {
               <motion.div
                 initial={{ opacity: 0, transform: "translateX(20px)" }}
                 whileInView={{ opacity: 1, transform: "translateX(0)" }}
-                className="top-86.75 left-165 flex w-full max-sm:max-w-76.75 translate-y-[-50%] flex-col justify-center font-['Inter:Regular',sans-serif] text-[16px] leading-0 font-normal whitespace-pre-wrap text-gray-300 not-italic"
+                className="top-86.75 left-165 flex w-full translate-y-[-50%] flex-col justify-center font-['Inter:Regular',sans-serif] text-[16px] leading-0 font-normal whitespace-pre-wrap text-gray-300 not-italic max-sm:max-w-76.75"
                 data-node-id="2127:1008"
               >
                 <span className="mb-0 leading-normal">
@@ -256,7 +256,7 @@ export default function Page() {
               data-name="Portfolio-list"
               data-node-id="2124:483"
             >
-              <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-5">
+              <div className="grid grid-cols-2 gap-5 max-lg:grid-cols-1">
                 {portfolioData.map((item) => (
                   <ProjectCard key={item.id} {...item} />
                 ))}

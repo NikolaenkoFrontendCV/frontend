@@ -25,7 +25,7 @@ export default function Dialog() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!isLoad) setIsLoad(true);
-  }, [isLoad])
+  }, [isLoad]);
 
   function handleCloseDialog() {
     dispatch({ type: "dialogContent/closeDialog" });
@@ -34,10 +34,10 @@ export default function Dialog() {
   return (
     <motion.div
       variants={variants}
-      initial={!isLoad && 'hidden'}
+      initial={!isLoad && "hidden"}
       animate={dialogContent.isOpen && isLoad ? "visible" : "hidden"}
       className="fixed top-0 left-0 z-100 flex h-screen w-full items-center justify-center bg-gray-900/50 backdrop-blur-sm"
-      style={!isLoad ? {display: 'none'} : {display: "flex"}}
+      style={!isLoad ? { display: "none" } : { display: "flex" }}
     >
       <motion.div
         className="flex max-h-[calc(100vh-80px)] w-full max-w-xl flex-col items-center gap-4 rounded-lg border border-gray-400 bg-gray-900 p-6"
