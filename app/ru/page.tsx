@@ -33,7 +33,7 @@ export default function Page() {
   }
 
   function handleScrollToContact() {
-    router.push('/#contact');
+    router.push("/#contact");
   }
 
   return (
@@ -146,7 +146,9 @@ export default function Page() {
                 </p>
               </AnimationText>
               <ButtonSet>
-                <Button style="filled" onClick={handleScrollToContact}>Contact me</Button>
+                <Button style="filled" onClick={handleScrollToContact}>
+                  Contact me
+                </Button>
                 <Button onClick={handleDownload} style="outlined">
                   Download CV
                 </Button>
@@ -169,7 +171,9 @@ export default function Page() {
               <SectionTitle number="02" title="Skills" />
               <Skills />
               <ButtonSet>
-                <Button style="filled" onClick={handleScrollToContact}>Contact me</Button>
+                <Button style="filled" onClick={handleScrollToContact}>
+                  Contact me
+                </Button>
                 <Button onClick={handleDownload} style="outlined">
                   Download CV
                 </Button>
@@ -241,7 +245,9 @@ export default function Page() {
             </div>
 
             <ButtonSet>
-              <Button style="filled" onClick={handleScrollToContact}>Contact me</Button>
+              <Button style="filled" onClick={handleScrollToContact}>
+                Contact me
+              </Button>
               <Button onClick={handleDownload} style="outlined">
                 Download CV
               </Button>

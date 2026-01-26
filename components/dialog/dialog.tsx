@@ -36,7 +36,7 @@ export default function Dialog() {
       variants={variants}
       initial={!isLoad && "hidden"}
       animate={dialogContent.isOpen && isLoad ? "visible" : "hidden"}
-      className="fixed top-0 left-0 z-100 flex h-screen w-full items-center p-2.5 justify-center bg-gray-900/50 backdrop-blur-sm"
+      className="fixed top-0 left-0 z-100 flex h-screen w-full items-center justify-center bg-gray-900/50 p-2.5 backdrop-blur-sm"
       style={!isLoad ? { display: "none" } : { display: "flex" }}
     >
       <motion.div
