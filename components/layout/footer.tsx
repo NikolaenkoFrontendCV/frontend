@@ -82,7 +82,7 @@ export default function Footer() {
               className="relative flex shrink-0 flex-col justify-center whitespace-nowrap"
               data-node-id="2133:447"
             >
-              <Link href={"#"} className="leading-normal">
+              <Link href={"/privacy"} className="leading-normal">
                 Политика конфиденциальности
               </Link>
             </div>
