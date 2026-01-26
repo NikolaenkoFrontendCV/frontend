@@ -21,20 +21,20 @@ export default function SectionTitle({
         data-node-id="2109:185"
       >
         <div
-          className="relative flex w-full shrink-0 flex-col justify-center bg-linear-to-b from-[#bdbdbd] to-[#171717] bg-clip-text text-[160px] leading-0 max-[400px]:text-[78px] max-sm:text-[100px]"
+          className="relative flex w-full shrink-0 flex-col justify-center bg-linear-to-b from-[#bdbdbd] to-[#171717] bg-clip-text text-[160px] leading-0 max-sm:text-[100px]"
           data-node-id="2109:168"
           style={{ WebkitTextFillColor: "transparent" }}
         >
-          <span className="font-manrope leading-54.75 font-bold whitespace-pre-wrap max-sm:leading-34.25">
+          <span className="font-manrope leading-54.75 font-bold whitespace-pre-wrap max-sm:leading-34.25 max-[400px]:text-[78px]">
             {number}
           </span>
         </div>
       </div>
       <div
-        className="font-manrope top-[165.5px] z-10 flex flex-col justify-center text-[78px] font-bold whitespace-nowrap text-white max-[400px]:text-[48px] max-sm:text-[56px]"
+        className="font-manrope top-[165.5px] z-10 flex flex-col justify-center text-[78px] font-bold whitespace-nowrap text-white  max-sm:text-[56px]"
         data-node-id="2109:172"
       >
-        <h2 className="leading-[normal]">{title}</h2>
+        <h2 className="leading-[normal] max-[400px]:text-[48px]">{title}</h2>
       </div>
     </motion.div>
   );
