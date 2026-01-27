@@ -205,7 +205,7 @@ export default function Page() {
                 id={0}
                 position="Middle Frontend-разработчик"
                 company="Cyberzion"
-                period="2023-2024"
+                period="2024-2025"
               >
                 <p className="mb-0">
                   Работал над финтех-продуктами компании: системой обмена валют
@@ -219,7 +219,7 @@ export default function Page() {
                 reverse
                 position="Middle Frontend-разработчик"
                 company="DialTrace"
-                period="2024-2025"
+                period="2025-2026"
               >
                 <p className="mb-0">
                   Участвовал в разработке внутренней B2B-системы мониторинга
@@ -233,7 +233,7 @@ export default function Page() {
                 id={2}
                 position="Frontend-разработчик"
                 company="Freelance"
-                period="2023-2025"
+                period="2023-2026"
               >
                 <p className="mb-0">
                   Работал над образовательными и корпоративными проектами: от
